@@ -1,0 +1,19 @@
+{
+    "Document":
+    [
+		{
+			"id" : 1,
+			"fileName" : "user_guide.doc",
+			"description" : "User Guide",
+			"binaryData" : null,
+			"version": 0
+		},
+		{
+			"id" : 2,
+			"fileName" : "reference_guide.doc",
+			"description" : "Reference Guide",
+			"binaryData" : null,
+			"version": 0
+		}
+    ]
+}
