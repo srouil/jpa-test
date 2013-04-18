@@ -6,19 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Version;
 
 @Entity
 //@formatter:off
-@NamedQueries({ 
-    
-    @NamedQuery(name = Document.SELECT_ALL_DOCUMENTS,             
-        query = "SELECT new Document(d.id, d.fileName, d.description, d.version) " +
-                "FROM Document d")
-})    
+@NamedQuery(name = Document.SELECT_ALL_DOCUMENTS,             
+    query = "SELECT new Document(d.id, d.fileName, d.description, d.version) " +
+            "FROM Document d")
 //@formatter:on
 public class Document {
 

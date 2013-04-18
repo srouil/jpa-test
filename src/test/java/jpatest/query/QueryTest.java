@@ -14,6 +14,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
+import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Subquery;
@@ -43,8 +44,7 @@ public class QueryTest {
 
     @Deployment
     public static Archive<?> createTestArchive() {
-        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Person.class.getPackage())
-                .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Person.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -110,11 +110,11 @@ public class QueryTest {
 
         List<Predicate> predicates = new ArrayList<Predicate>();
         if (lastNamePattern != null) {
-            predicates.add(cb.like(person.get("lastName").as(String.class), lastNamePattern));
+            predicates.add(cb.like(person.get(Person_.lastName), lastNamePattern));
         }
         if (categoryName != null) {
-            Join<Person, Category> categories = person.join("categories", JoinType.LEFT);
-            predicates.add(cb.equal(categories.get("name").as(String.class), categoryName));
+            Join<Person, Category> categories = person.join(Person_.categories, JoinType.LEFT);
+            predicates.add(cb.equal(categories.get(Category_.name), categoryName));
         }
         c.where(cb.and(predicates.toArray(new Predicate[predicates.size()])));
 
@@ -202,4 +202,38 @@ public class QueryTest {
         assertEquals(2, q3.getResultList().size());
     }
 
+    /**
+     * This shows usage of Criteria API with parameters
+     */
+    @Test
+    @UsingDataSet("query/initial.yml")
+    public void testCriteriaParameters() {
+
+        // Given
+        // Initial dataset
+
+        // When
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Person> c = cb.createQuery(Person.class);
+        Root<Person> person = c.from(Person.class);
+        c.select(person);
+
+        ParameterExpression<String> param = cb.parameter(String.class);
+        Predicate predicate = cb.like(person.get(Person_.lastName), param);
+        c.where(predicate);
+
+        // Query using parameter can be replaced with these 2 line that use a literal
+        // Generated SQL query is the same in both case: Hibernate uses a bind parameter
+        // Predicate predicate = cb.like(person.get(Person_.lastName), "Leg%");
+        // c.where(predicate);
+
+        TypedQuery<Person> q = em.createQuery(c);
+        
+        q.setParameter(param, "Legr%");
+        
+        List<Person> persons = q.getResultList();
+
+        // Then
+        assertEquals(1, persons.size());
+    }
 }
