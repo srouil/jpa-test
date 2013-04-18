@@ -1,0 +1,44 @@
+department:
+  - id: 1
+    name: R&D
+  - id: 2
+    name: Sales
+employee_info:
+  - id: 1
+    additionalinfo: lala
+  - id: 2
+    additionalinfo: bla
+  - id: 3
+    additionalinfo: blabla
+employee:
+  - id: 1
+    firstname: Roger
+    lastname: Legros
+    department_id: 1
+    employee_info_id: 1
+  - id: 2
+    firstname: Samuel
+    lastname: Rouiller
+    department_id: 1
+    employee_info_id: 2
+  - id: 3
+    firstname: Lulu
+    lastname: Latortue
+    department_id: 2
+    employee_info_id: 3
+project:
+  - id: 1
+    name: Superproject
+  - id: 2
+    name: Killerapp
+  - id: 3
+    name: Fiasco
+department_project:
+  - department_id: 1 
+    project_id: 1 
+  - department_id: 2 
+    project_id: 1 
+  - department_id: 2 
+    project_id: 2 
+  - department_id: 2 
+    project_id: 3
