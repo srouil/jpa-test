@@ -23,34 +23,30 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class ExtendedPersistenceContextTest {
 
-	@Deployment
-	public static Archive<?> createTestArchive() {
-		return ShrinkWrap
-				.create(WebArchive.class, "test.war")
-				.addPackage(Department.class.getPackage())
-				.addAsResource("META-INF/persistence.xml",
-						"META-INF/persistence.xml")
-				.addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
-	}
+    @Deployment
+    public static Archive<?> createTestArchive() {
+        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Department.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+    }
 
-	@EJB
-	DepartmentManager departmentManager;
-	
-	/**
+    @EJB
+    DepartmentManager departmentManager;
+
+    /**
      * Test is not transactional, DepartmentManager starts 4 transactions
-	 */
-	@Test
+     */
+    @Test
     @UsingDataSet("extendedpersistencecontext/initial.yml")
     @ShouldMatchDataSet("extendedpersistencecontext/expected.yml")
-	public void testSetNameAddEmployee() throws Exception {
+    public void testSetNameAddEmployee() throws Exception {
 
-	    // Given 
-	    // Initial dataset
-	    
-	    // When
-	    departmentManager.init(1L);
+        // Given 
+        // Initial dataset
+
+        // When
+        departmentManager.init(1L);
         departmentManager.setName("Technology", false);
-	    departmentManager.addEmployee(1L);
+        departmentManager.addEmployee(1L);
 
         departmentManager.setName("Accounting", true);
 
@@ -59,9 +55,9 @@ public class ExtendedPersistenceContextTest {
         departmentManager.setName("Bla", false);
 
         // Then
-	    // Expected dataset
+        // Expected dataset
         assertEquals("Department has 1 employee", 1, departmentManager.getEmployeeCount());
         departmentManager.finished();
-	}
+    }
 
 }
