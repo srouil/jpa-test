@@ -15,17 +15,5 @@ public class EmployeeInfo {
     private Long id;
 
     private String additionalInfo;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getAdditionalInfo() {
-        return additionalInfo;
-    }
-
-    public void setAdditionalInfo(String additionalInfo) {
-        this.additionalInfo = additionalInfo;
-    }
     
 }

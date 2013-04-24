@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 @NamedQueries({
   @NamedQuery(
           name = Department.SELECT_ALL_DEPARTMENTS,             
-          query = "select d from Department d " +
+          query = "select DISTINCT d from Department d " +
                   "left join fetch d.employees e left join fetch e.employeeInfo " +
                   "left join fetch d.projects"),
 })
@@ -43,21 +43,12 @@ public class Department {
         inverseJoinColumns = @JoinColumn(name = "project_id" ))
     private Set<Project> projects = new HashSet<Project>();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
     public Set<Employee> getEmployees() {
         return employees;
     }
 
-
+    public Set<Project> getProjects() {
+        return projects;
+    }
+    
 }

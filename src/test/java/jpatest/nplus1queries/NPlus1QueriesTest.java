@@ -5,9 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import junit.framework.Assert;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.persistence.ApplyScriptBefore;
+import org.jboss.arquillian.persistence.Cleanup;
+import org.jboss.arquillian.persistence.TestExecutionPhase;
 import org.jboss.arquillian.persistence.TransactionMode;
 import org.jboss.arquillian.persistence.Transactional;
 import org.jboss.arquillian.persistence.UsingDataSet;
@@ -19,9 +23,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-@Transactional(TransactionMode.DISABLED)
+@Transactional(TransactionMode.COMMIT)
 @ApplyScriptBefore("scripts/nplus1queries/cleanup.sql")
 @UsingDataSet("nplus1queries/initial.yml")
+@Cleanup(phase = TestExecutionPhase.NONE)
 public class NPlus1QueriesTest {
 
     @Deployment
@@ -98,5 +103,7 @@ public class NPlus1QueriesTest {
 
         // Then
         // 1 query with joins
+        Assert.assertEquals("2 departments are found", 2, departments.size());
+        System.out.println(departments.get(0).getEmployees().iterator().next().getFirstName());
     }
 }

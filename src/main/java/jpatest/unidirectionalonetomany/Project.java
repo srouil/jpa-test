@@ -1,4 +1,4 @@
-package jpatest.nplus1queries;
+package jpatest.unidirectionalonetomany;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,5 +13,17 @@ public class Project {
     private Long id;
 
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
 
 }

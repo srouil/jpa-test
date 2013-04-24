@@ -41,6 +41,10 @@ public class Employee {
     @JoinColumn(name= "employee_info_id")
     private EmployeeInfo employeeInfo;
 
+    public Long getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -55,26 +59,6 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    public EmployeeInfo getEmployeeInfo() {
-        return employeeInfo;
-    }
-
-    public void setEmployeeInfo(EmployeeInfo employeeInfo) {
-        this.employeeInfo = employeeInfo;
     }
 
     

@@ -4,3 +4,4 @@ delete from employee_info;
 delete from department;
 delete from department_project;
 delete from project;
+SET REFERENTIAL_INTEGRITY TRUE;
