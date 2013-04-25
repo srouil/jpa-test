@@ -1,0 +1,17 @@
+department:
+  - id: 1001
+    name: R&D
+    version: 1
+employee:
+  - id: 1001
+    firstname: Roger
+    lastname: Legros
+    department_id: 1001
+    version: 1
+project:
+  - id: 1001
+    name: Superproject
+    version: 1
+department_project:
+  - department_id: 1001 
+    project_id: 1001
