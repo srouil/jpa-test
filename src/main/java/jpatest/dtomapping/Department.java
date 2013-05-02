@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class Department extends BaseEntity {
@@ -22,13 +23,12 @@ public class Department extends BaseEntity {
 
     private String name;
 
-    @OneToMany(mappedBy = "department", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("id asc")
     private List<Employee> employees = new ArrayList<Employee>();
 
     @ManyToMany
-    @JoinTable(name = "department_project", 
-        joinColumns = @JoinColumn(name = "department_id"), 
-        inverseJoinColumns = @JoinColumn(name = "project_id" ))
+    @JoinTable(name = "department_project", joinColumns = @JoinColumn(name = "department_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
     private List<Project> projects = new ArrayList<Project>();
 
     public Long getId() {
@@ -62,5 +62,5 @@ public class Department extends BaseEntity {
     public void setProjects(List<Project> projects) {
         this.projects = projects;
     }
-    
+
 }

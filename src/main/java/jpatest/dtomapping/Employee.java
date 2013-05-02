@@ -51,4 +51,36 @@ public class Employee extends BaseEntity {
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    /**
+     * Needed by Find-Map strategy so that Dozer updates list Element instead of adding a new one.
+     * When equals is not implemented to compare primary or business key, Hibernate will throw
+     * org.hibernate.PersistentObjectException: detached entity passed to persist: jpatest.dtomapping.Employee
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Employee other = (Employee) obj;
+        if (id != null && other.id != null) {
+            return id.equals(other.id);
+        }
+        return false;
+    }
+
+    /**
+     * Overridden to maintain the general contract for the hashCode method (equal objects must have equal hash codes) 
+     */
+    @Override
+    public int hashCode() {
+        if (id != null) {
+            return id.hashCode();
+        }
+        return super.hashCode();
+    }
+
 }

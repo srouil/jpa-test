@@ -14,12 +14,12 @@ import org.dozer.Mapper;
 /**
  * Implementation of a simplistic service interface for working with Department, Employee and Project.
  * 
- * This class implement the "map -> merge" solution for updating entities:
- * DTO is mapped to a new detached entities
- * Detached entity is merged with persistence context
+ * This class implement the "find -> map" solution for updating entities:
+ * Persistent entity is found for ID of DTO
+ * DTO state is mapped to persistent entity
  */
 @Stateless
-public class DepartmentServiceMapMergeBean {
+public class DepartmentServiceFindMapBean {
 
     public static Mapper mapper;
 
@@ -27,7 +27,7 @@ public class DepartmentServiceMapMergeBean {
     public void initDozer() {
         if (mapper == null) {
             List<String> files = new ArrayList<String>();
-            files.add("dozer-map-merge.xml");
+            files.add("dozer-find-map.xml");
             mapper = new DozerBeanMapper(files);
         }
     }
@@ -35,9 +35,9 @@ public class DepartmentServiceMapMergeBean {
     @PersistenceContext(unitName = "")
     EntityManager em;
 
-    public DepartmentFullDTO findDepartmentById(Long id) {
+    public <T extends DepartmentLightDTO> T findDepartmentById(Long id, Class<T> dtoClass) {
         Department d = em.find(Department.class, id);
-        return mapper.map(d, DepartmentFullDTO.class);
+        return mapper.map(d, dtoClass);
     }
 
     public DepartmentFullDTO createDepartment(DepartmentFullDTO departmentDTO) {
@@ -46,12 +46,16 @@ public class DepartmentServiceMapMergeBean {
         return mapper.map(department, DepartmentFullDTO.class);
     }
 
-    public void updateDepartment(DepartmentFullDTO departmentDTO) {
-        Department department = mapper.map(departmentDTO, Department.class);
-        department = em.merge(department);
+    public void updateDepartment(DepartmentLightDTO departmentDTO) {
+
+        // Find
+        Department department = em.find(Department.class, departmentDTO.getId());
+
+        // Map - apply (potentially partial) state of DTO to persistent entity
+        mapper.map(departmentDTO, department);
     }
 
-    public void deleteDepartment(DepartmentFullDTO departmentDTO) {
+    public void deleteDepartment(DepartmentLightDTO departmentDTO) {
         Department department = mapper.map(departmentDTO, Department.class);
         em.remove(department);
     }

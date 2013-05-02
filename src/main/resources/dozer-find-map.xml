@@ -1,0 +1,19 @@
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<configuration>
+		<trim-strings>true</trim-strings>
+	</configuration>
+
+    <mapping type="one-way">
+        <class-a>jpatest.dtomapping.DepartmentFullDTO</class-a>        
+        <class-b>jpatest.dtomapping.Department</class-b>
+        <field relationship-type="non-cumulative" remove-orphans="true">
+            <a>employees</a>
+            <b>employees</b>
+        </field>
+        <field relationship-type="non-cumulative" remove-orphans="true">
+            <a>projects</a>
+            <b>projects</b>
+        </field>
+    </mapping>
+</mappings>
