@@ -1,8 +1,9 @@
 package jpatest.dtomapping;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,14 +22,14 @@ public class Department extends BaseEntity {
 
     private String name;
 
-    @OneToMany(mappedBy = "department")
-    private Set<Employee> employees = new HashSet<Employee>();
+    @OneToMany(mappedBy = "department", cascade = CascadeType.MERGE)
+    private List<Employee> employees = new ArrayList<Employee>();
 
     @ManyToMany
     @JoinTable(name = "department_project", 
         joinColumns = @JoinColumn(name = "department_id"), 
         inverseJoinColumns = @JoinColumn(name = "project_id" ))
-    private Set<Project> projects = new HashSet<Project>();
+    private List<Project> projects = new ArrayList<Project>();
 
     public Long getId() {
         return id;
@@ -46,19 +47,19 @@ public class Department extends BaseEntity {
         this.name = name;
     }
 
-    public Set<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Set<Employee> employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 
-    public Set<Project> getProjects() {
+    public List<Project> getProjects() {
         return projects;
     }
 
-    public void setProjects(Set<Project> projects) {
+    public void setProjects(List<Project> projects) {
         this.projects = projects;
     }
     

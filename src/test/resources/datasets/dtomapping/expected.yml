@@ -1,18 +1,18 @@
 department:
   - id: 1001
-    name: R&D
-    version: 1
+    name: R&D and more
+    version: 2
 employee:
   - id: 1001
     firstname: Roger
     lastname: Legros
-    department_id: 1001
-    version: 1
+    department_id: [null]
+    version: 2
   - id: 1002
     firstname: Samuel
     lastname: Rouiller
-    department_id: [null]
-    version: 1
+    department_id: 1001
+    version: 2
 project:
   - id: 1001
     name: Superproject
@@ -22,4 +22,4 @@ project:
     version: 1
 department_project:
   - department_id: 1001 
-    project_id: 1001
+    project_id: 1002

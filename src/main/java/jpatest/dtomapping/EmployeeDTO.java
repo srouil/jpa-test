@@ -9,7 +9,7 @@ public class EmployeeDTO extends BaseDTO {
 
     private String lastName;
 
-    private Department department;
+    private DepartmentDTO department;
 
     public Long getId() {
         return id;
@@ -35,11 +35,11 @@ public class EmployeeDTO extends BaseDTO {
         this.lastName = lastName;
     }
 
-    public Department getDepartment() {
+    public DepartmentDTO getDepartment() {
         return department;
     }
 
-    public void setDepartment(Department department) {
+    public void setDepartment(DepartmentDTO department) {
         this.department = department;
     }    
 }

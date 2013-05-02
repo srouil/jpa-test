@@ -1,7 +1,7 @@
 package jpatest.dtomapping;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DepartmentDTO extends BaseDTO {
 
@@ -9,9 +9,9 @@ public class DepartmentDTO extends BaseDTO {
 
     private String name;
 
-    private Set<EmployeeDTO> employees = new HashSet<EmployeeDTO>();
+    private List<EmployeeDTO> employees = new ArrayList<EmployeeDTO>();
 
-    private Set<ProjectDTO> projects = new HashSet<ProjectDTO>();
+    private List<ProjectDTO> projects = new ArrayList<ProjectDTO>();
 
     public Long getId() {
         return id;
@@ -29,19 +29,19 @@ public class DepartmentDTO extends BaseDTO {
         this.name = name;
     }
 
-    public Set<EmployeeDTO> getEmployees() {
+    public List<EmployeeDTO> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Set<EmployeeDTO> employees) {
+    public void setEmployees(List<EmployeeDTO> employees) {
         this.employees = employees;
     }
 
-    public Set<ProjectDTO> getProjects() {
+    public List<ProjectDTO> getProjects() {
         return projects;
     }
 
-    public void setProjects(Set<ProjectDTO> projects) {
+    public void setProjects(List<ProjectDTO> projects) {
         this.projects = projects;
     }
 
