@@ -1,6 +1,14 @@
+company:
+  - id: 1001
+    name: ISC-EJPD
+    version: 0
+  - id: 1002
+    name: TheHackers
+    version: 0
 department:
   - id: 1001
     name: R&D and more
+    company_id: 1002
     version: 1
 employee:
   - id: 1002

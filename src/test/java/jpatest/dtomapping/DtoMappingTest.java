@@ -67,6 +67,10 @@ public class DtoMappingTest {
         // Update department attribute
         department.setName("R&D and more");
 
+        // Modify ManyToOne association
+        CompanyDTO newCompany = departmentServiceMM.findCompanyById(1002L);
+        department.setCompany(newCompany);
+
         // Remove element from OneToMany collection to delete it 
         EmployeeDTO employeeToRemove = department.getEmployees().get(0);
         department.getEmployees().remove(employeeToRemove);
@@ -109,6 +113,10 @@ public class DtoMappingTest {
 
         // Update department attribute
         department.setName("R&D and more");
+
+        // Modify ManyToOne association
+        CompanyDTO newCompany = departmentServiceMM.findCompanyById(1002L);
+        department.setCompany(newCompany);
 
         // Remove element from OneToMany collection to delete it 
         EmployeeDTO employeeToRemove = department.getEmployees().get(0);

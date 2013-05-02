@@ -1,12 +1,10 @@
 package jpatest.dtomapping;
 
-public class DepartmentLightDTO extends BaseDTO {
+public class CompanyDTO extends BaseDTO {
 
     private Long id;
 
     private String name;
-
-    private CompanyDTO company;
 
     public Long getId() {
         return id;
@@ -22,14 +20,6 @@ public class DepartmentLightDTO extends BaseDTO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public CompanyDTO getCompany() {
-        return company;
-    }
-
-    public void setCompany(CompanyDTO company) {
-        this.company = company;
     }
 
 }

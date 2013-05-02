@@ -66,4 +66,9 @@ public class DepartmentServiceMapMergeBean {
         return mapper.map(p, ProjectDTO.class);
     }
 
+    public CompanyDTO findCompanyById(Long id) {
+        Company c = em.find(Company.class, id);
+        return mapper.map(c, CompanyDTO.class);
+    }
+
 }

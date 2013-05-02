@@ -1,12 +1,18 @@
 package jpatest.dtomapping;
 
-public class DepartmentLightDTO extends BaseDTO {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Company extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
-
-    private CompanyDTO company;
 
     public Long getId() {
         return id;
@@ -22,14 +28,6 @@ public class DepartmentLightDTO extends BaseDTO {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public CompanyDTO getCompany() {
-        return company;
-    }
-
-    public void setCompany(CompanyDTO company) {
-        this.company = company;
     }
 
 }
