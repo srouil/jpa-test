@@ -44,72 +44,43 @@ public class DtoMappingTest {
     @PersistenceContext
     EntityManager em;
 
-    @EJB
-    DepartmentServiceMapMergeBean departmentServiceMM;
+    @EJB(beanName = "DepartmentServiceMapMergeBean")
+    DepartmentService departmentServiceMM;
 
-    @EJB
-    DepartmentServiceFindMapBean departmentServiceFM;
+    @EJB(beanName = "DepartmentServiceFindMapBean")
+    DepartmentService departmentServiceFM;
 
     /**
-     * Test shows different use cases with services update() method implemented with the map-merge strategy
+     * Test update() method of service using "map-merge" strategy for update
      */
     @Test
     @UsingDataSet("dtomapping/initial.yml")
     @ShouldMatchDataSet("dtomapping/expected1.yml")
     public void testUpdateMapMerge() {
-
-        // Given
-        // Initial dataset
-
-        // When
-        DepartmentFullDTO department = departmentServiceMM.findDepartmentById(1001L);
-
-        // Update department attribute
-        department.setName("R&D and more");
-
-        // Modify ManyToOne association
-        CompanyDTO newCompany = departmentServiceMM.findCompanyById(1002L);
-        department.setCompany(newCompany);
-
-        // Remove element from OneToMany collection to delete it 
-        EmployeeDTO employeeToRemove = department.getEmployees().get(0);
-        department.getEmployees().remove(employeeToRemove);
-
-        // Update attribute of OneToMany collection element
-        EmployeeDTO employeeToUpdate = department.getEmployees().get(0);
-        employeeToUpdate.setFirstName("Lulue");
-
-        // Add a new Employee to collection
-        EmployeeDTO newEmployee = new EmployeeDTO();
-        newEmployee.setFirstName("Samuel");
-        newEmployee.setLastName("Rouiller");
-        newEmployee.setDepartment(department);
-        department.getEmployees().add(newEmployee);
-
-        // Update ManyToMany
-        department.getProjects().clear();
-        ProjectDTO project = departmentServiceMM.findProjectById(1002L);
-        department.getProjects().add(project);
-
-        departmentServiceMM.updateDepartment(department);
-
-        // Then
-        // Expected dataset
+        doTestUpdate(departmentServiceMM);
     }
 
     /**
-     * Test shows different use cases with services update() method implemented with the find-map strategy
+     * Test update() method of service using "find-map" strategy for update
      */
     @Test
     @UsingDataSet("dtomapping/initial.yml")
     @ShouldMatchDataSet("dtomapping/expected1.yml")
     public void testUpdateFullFindMap() {
+        doTestUpdate(departmentServiceFM);
+    }
+
+    /**
+     * Test shows different use cases with services update() method that must be
+     * supported by the two strategies
+     */
+    private void doTestUpdate(DepartmentService departmentService) {
 
         // Given
         // Initial dataset
 
         // When
-        DepartmentFullDTO department = departmentServiceFM.findDepartmentById(1001L, DepartmentFullDTO.class);
+        DepartmentFullDTO department = departmentService.findDepartmentById(1001L, DepartmentFullDTO.class);
 
         // Update department attribute
         department.setName("R&D and more");
@@ -118,7 +89,7 @@ public class DtoMappingTest {
         CompanyDTO newCompany = departmentServiceMM.findCompanyById(1002L);
         department.setCompany(newCompany);
 
-        // Remove element from OneToMany collection to delete it 
+        // Remove element from OneToMany collection to delete it
         EmployeeDTO employeeToRemove = department.getEmployees().get(0);
         department.getEmployees().remove(employeeToRemove);
 
@@ -138,12 +109,16 @@ public class DtoMappingTest {
         ProjectDTO project = departmentServiceFM.findProjectById(1002L);
         department.getProjects().add(project);
 
-        departmentServiceFM.updateDepartment(department);
+        departmentService.updateDepartment(department);
 
         // Then
         // Expected dataset
     }
 
+    /**
+     * Updating only a subset of the entity attributes is only possible with
+     * "find-map" strategy.
+     */
     @Test
     @UsingDataSet("dtomapping/initial.yml")
     @ShouldMatchDataSet("dtomapping/expected2.yml")

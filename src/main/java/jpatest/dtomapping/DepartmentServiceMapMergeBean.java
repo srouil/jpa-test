@@ -9,19 +9,19 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.dozer.DozerBeanMapper;
-import org.dozer.Mapper;
 
 /**
- * Implementation of a simplistic service interface for working with Department, Employee and Project.
+ * Implementation of a simplistic service interface for working with Department,
+ * Employee and Project.
  * 
- * This class implement the "map -> merge" solution for updating entities:
- * DTO is mapped to a new detached entities
- * Detached entity is merged with persistence context
+ * This class implement the "map -> merge" solution for updating entities: DTO
+ * is mapped to a new detached entities Detached entity is merged with
+ * persistence context
  */
 @Stateless
-public class DepartmentServiceMapMergeBean {
+public class DepartmentServiceMapMergeBean implements DepartmentService {
 
-    public static Mapper mapper;
+    public static DozerBeanMapper mapper;
 
     @PostConstruct
     public void initDozer() {
@@ -35,37 +35,44 @@ public class DepartmentServiceMapMergeBean {
     @PersistenceContext(unitName = "")
     EntityManager em;
 
-    public DepartmentFullDTO findDepartmentById(Long id) {
+    @Override
+    public <T extends DepartmentLightDTO> T findDepartmentById(Long id, Class<T> dtoClass) {
         Department d = em.find(Department.class, id);
-        return mapper.map(d, DepartmentFullDTO.class);
+        return mapper.map(d, dtoClass);
     }
 
+    @Override
     public DepartmentFullDTO createDepartment(DepartmentFullDTO departmentDTO) {
         Department department = mapper.map(departmentDTO, Department.class);
         em.persist(department);
         return mapper.map(department, DepartmentFullDTO.class);
     }
 
-    public void updateDepartment(DepartmentFullDTO departmentDTO) {
+    @Override
+    public void updateDepartment(DepartmentLightDTO departmentDTO) {
         Department department = mapper.map(departmentDTO, Department.class);
         department = em.merge(department);
     }
 
-    public void deleteDepartment(DepartmentFullDTO departmentDTO) {
+    @Override
+    public void deleteDepartment(DepartmentLightDTO departmentDTO) {
         Department department = mapper.map(departmentDTO, Department.class);
         em.remove(department);
     }
 
+    @Override
     public EmployeeDTO findEmployeeById(Long id) {
         Employee e = em.find(Employee.class, id);
         return mapper.map(e, EmployeeDTO.class);
     }
 
+    @Override
     public ProjectDTO findProjectById(Long id) {
         Project p = em.find(Project.class, id);
         return mapper.map(p, ProjectDTO.class);
     }
 
+    @Override
     public CompanyDTO findCompanyById(Long id) {
         Company c = em.find(Company.class, id);
         return mapper.map(c, CompanyDTO.class);

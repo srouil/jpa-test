@@ -1,7 +1,6 @@
 package jpatest.dtomapping;
 
-
-public class BaseDTO {
+public abstract class BaseDTO {
 
     private Integer version;
 
@@ -12,5 +11,6 @@ public class BaseDTO {
     public void setVersion(Integer version) {
         this.version = version;
     }
-    
+
+    public abstract Long getId();
 }
