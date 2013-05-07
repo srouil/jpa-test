@@ -6,7 +6,12 @@ public interface DepartmentService {
 
     public DepartmentFullDTO createDepartment(DepartmentFullDTO departmentDTO);
 
-    public void updateDepartment(DepartmentLightDTO departmentDTO);
+    /**
+     * Parameter and return type is defined as DepartmentLightDTO. 
+     * However the actual type can be DepartmentLightDTO or DepartmentFullDTO depending on what attributes
+     * need to be updated. 
+     */
+    public DepartmentLightDTO updateDepartment(DepartmentLightDTO departmentDTO);
 
     public void deleteDepartment(DepartmentLightDTO departmentDTO);
 

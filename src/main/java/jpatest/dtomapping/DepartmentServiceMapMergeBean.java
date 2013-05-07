@@ -49,9 +49,20 @@ public class DepartmentServiceMapMergeBean implements DepartmentService {
     }
 
     @Override
-    public void updateDepartment(DepartmentLightDTO departmentDTO) {
+    public DepartmentLightDTO updateDepartment(DepartmentLightDTO departmentDTO) {
+
+        // Map DTO to a new detached entity object
         Department department = mapper.map(departmentDTO, Department.class);
+
+        // Merge with persistence context
         department = em.merge(department);
+
+        // Following steps can be omitted if update method does not need to return a DTO
+        // Flush persistence context to increment version attribute
+        em.flush();
+
+        // Map to the same DTO type as input parameter
+        return mapper.map(department, departmentDTO.getClass());
     }
 
     @Override

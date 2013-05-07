@@ -104,6 +104,9 @@ public class DtoMappingTest {
         newEmployee.setDepartment(department);
         department.getEmployees().add(newEmployee);
 
+        // Update in two steps to check that version attribute is handled correctly
+        department = (DepartmentFullDTO) departmentService.updateDepartment(department);
+
         // Update ManyToMany
         department.getProjects().clear();
         ProjectDTO project = departmentServiceFM.findProjectById(1002L);

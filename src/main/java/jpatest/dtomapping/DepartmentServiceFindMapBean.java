@@ -59,13 +59,20 @@ public class DepartmentServiceFindMapBean implements DepartmentService {
     }
 
     @Override
-    public void updateDepartment(DepartmentLightDTO departmentDTO) {
+    public DepartmentLightDTO updateDepartment(DepartmentLightDTO departmentDTO) {
 
         // Find
         Department department = em.find(Department.class, departmentDTO.getId());
 
         // Map - apply (potentially partial) state of DTO to persistent entity
         mapper.map(departmentDTO, department);
+
+        // Following steps can be omitted if update method does not need to return a DTO
+        // Flush persistence context to increment version attribute
+        em.flush();
+
+        // Map to the same DTO type as input parameter
+        return mapper.map(department, departmentDTO.getClass());
     }
 
     @Override
