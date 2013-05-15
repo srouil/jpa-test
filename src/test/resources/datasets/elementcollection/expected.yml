@@ -12,4 +12,7 @@ person_phone_number:
   - person_id: 1001
     type: MOBILE
     number: "+41799999999"
+person_email_address:
+  - person_id: 1001
+    address: lulu@home.ch
     

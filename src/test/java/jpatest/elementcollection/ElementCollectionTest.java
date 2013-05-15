@@ -89,8 +89,7 @@ public class ElementCollectionTest {
 
         // Given
         // Initial dataset
-        Person pers = em.find(Person.class, 1001L);
-        pers.getPhoneNumbers().size();
+        Person pers = em.createNamedQuery(Person.SELECT_PERSON_BY_ID, Person.class).setParameter("id", 1001L).getSingleResult();
 
         em.detach(pers);
 
