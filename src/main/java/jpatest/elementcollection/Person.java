@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OrderBy;
 
@@ -29,12 +30,14 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "FIRST_NAME")
     private String firstName;
 
+    @Column(name = "LAST_NAME")
     private String lastName;
 
     @ElementCollection
-    @CollectionTable(name = "PERSON_PHONE_NUMBER")
+    @CollectionTable(name = "PERSON_PHONE_NUMBER", joinColumns = @JoinColumn(name = "PERSON_ID"))
     @OrderBy("type")
     private List<PhoneNumber> phoneNumbers = new ArrayList<PhoneNumber>();
 

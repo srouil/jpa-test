@@ -1,10 +1,10 @@
 person:
   - id: 1001
-    firstName: Lulu
-    lastName: Latortue
+    first_name: Lulu
+    last_name: Latortue
   - id: 1002
-    firstName: Roger
-    lastName: Legros
+    first_name: Roger
+    last_name: Legros
 person_phone_number:
   - person_id: 1001
     type: WORK
