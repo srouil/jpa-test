@@ -1,0 +1,15 @@
+person:
+  - id: 1001
+    firstName: Lulu
+    lastName: Latortue
+  - id: 1002
+    firstName: Roger
+    lastName: Legros
+person_phone_number:
+  - person_id: 1001
+    type: WORK
+    number: "+41262222223"
+  - person_id: 1001
+    type: MOBILE
+    number: "+41799999999"
+    
