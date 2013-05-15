@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="745593AE-0D15-3D3B-A58B-30543852176E">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-15 15:30:53 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-15 15:30:53 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

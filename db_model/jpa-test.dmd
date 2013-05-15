@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="jpa-test" id="D0E30CD9-5B93-246F-44D8-BC9FD8ED8796" version="3.4">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-15 15:30:52 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-15 15:31:31 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <capitalNames>false</capitalNames>
+   <designId>D0E30CD9-5B93-246F-44D8-BC9FD8ED8796</designId>
+</OSDM_Design>

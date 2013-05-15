@@ -8,10 +8,10 @@ person:
 person_phone_number:
   - person_id: 1001
     type: WORK
-    number: "+41262222223"
+    nbr: "+41262222223"
   - person_id: 1001
     type: MOBILE
-    number: "+41799999999"
+    nbr: "+41799999999"
 person_email_address:
   - person_id: 1001
     address: lulu@home.ch

@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DataTypesDesign class="oracle.dbtools.crest.model.design.datatypes.DataTypesDesign" name="DataTypes" id="9D10AEED-7C52-F908-C32A-E09E8BC7DF7A" mainViewID="1D37CB39-4392-56C4-A4DD-057D68825F2C">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-15 15:30:53 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-15 15:30:53 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <shouldBeOpen>false</shouldBeOpen>
+</DataTypesDesign>

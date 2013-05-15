@@ -1,5 +1,6 @@
 package jpatest.elementcollection;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -8,8 +9,10 @@ import javax.persistence.Enumerated;
 public class PhoneNumber {
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "TYPE")
     private NumberType type;
 
+    @Column(name = "NBR")
     private String number;
 
     public NumberType getType() {

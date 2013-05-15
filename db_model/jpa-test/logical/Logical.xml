@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="EEB1E437-F7AA-63E9-06B2-D7C4A2CF4708" mainViewID="AC75CF16-DBD7-90B6-D091-F363C2769EF9">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-15 15:30:52 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-15 15:30:52 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>
