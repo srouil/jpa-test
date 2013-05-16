@@ -12,16 +12,19 @@
 		<!-- Explicitly declaring the source encoding eliminates the following message: -->
 		<!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent! -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<version.arquillian_core>1.0.2.Final</version.arquillian_core>
-		<version.arquillian_persistence>1.0.0.Alpha5</version.arquillian_persistence>
-		<version.arquillian_container_jbossas>7.1.2.Final</version.arquillian_container_jbossas>
-		<version.jboss_javaee6_spec>2.0.0.Final</version.jboss_javaee6_spec>
-		<version.jbossas_7>7.1.1.Final</version.jbossas_7>
-		<version.hibernate_jpamodelgen>1.2.0.Final</version.hibernate_jpamodelgen>
-		<version.hibernate_core>4.0.1.Final</version.hibernate_core>
-		<version.dozer>5.4.0</version.dozer>
-		<version.junit>4.8.1</version.junit>
-		<version.log4j>1.2.14</version.log4j>
+
+		<arquillian_core.version>1.0.2.Final</arquillian_core.version>
+		<arquillian_persistence.version>1.0.0.Alpha5</arquillian_persistence.version>
+		<arquillian_container_jbossas.version>7.1.2.Final</arquillian_container_jbossas.version>
+		<jboss_javaee6_spec.version>2.0.0.Final</jboss_javaee6_spec.version>
+		<jbossas_7.version>7.1.1.Final</jbossas_7.version>
+		<hibernate_jpamodelgen.version>1.2.0.Final</hibernate_jpamodelgen.version>
+		<hibernate_core.version>4.2.1.Final</hibernate_core.version>
+		<dozer.version>5.4.0</dozer.version>
+		<junit.version>4.8.1</junit.version>
+		<log4j.version>1.2.14</log4j.version>
+		<joda-time.version>2.1</joda-time.version>
+		<jadira-usertype.version>3.0.0.GA</jadira-usertype.version>
 	</properties>
 
 	<repositories>
@@ -61,7 +64,7 @@
 			<dependency>
 				<groupId>org.jboss.spec</groupId>
 				<artifactId>jboss-javaee-6.0</artifactId>
-				<version>${version.jboss_javaee6_spec}</version>
+				<version>${jboss_javaee6_spec.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 				<exclusions>
@@ -75,7 +78,7 @@
 			<dependency>
 				<groupId>org.jboss.spec</groupId>
 				<artifactId>jboss-javaee-web-6.0</artifactId>
-				<version>${version.jboss_javaee6_spec}</version>
+				<version>${jboss_javaee6_spec.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 				<exclusions>
@@ -89,9 +92,10 @@
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-jpamodelgen</artifactId>
-				<version>${version.hibernate_jpamodelgen}</version>
+				<version>${hibernate_jpamodelgen.version}</version>
 				<scope>provided</scope>
-				<!-- Excluded because it's provided by the Java EE 6 dependencies -->
+
+				<!-- Excluded because it is provided by the Java EE 6 dependencies -->
 				<exclusions>
 					<exclusion>
 						<groupId>org.hibernate.javax.persistence</groupId>
@@ -104,19 +108,31 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
 				<scope>provided</scope>
-				<version>${version.hibernate_core}</version>
+				<version>${hibernate_core.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>net.sf.dozer</groupId>
 				<artifactId>dozer</artifactId>
-				<version>${version.dozer}</version>
+				<version>${dozer.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${joda-time.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jadira.usertype</groupId>
+				<artifactId>usertype.core</artifactId>
+				<version>${jadira-usertype.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.jboss.arquillian</groupId>
 				<artifactId>arquillian-bom</artifactId>
-				<version>${version.arquillian_core}</version>
+				<version>${arquillian_core.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -124,28 +140,28 @@
 			<dependency>
 				<groupId>org.jboss.arquillian.extension</groupId>
 				<artifactId>arquillian-persistence-impl</artifactId>
-				<version>${version.arquillian_persistence}</version>
+				<version>${arquillian_persistence.version}</version>
 				<scope>test</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>org.jboss.as</groupId>
 				<artifactId>jboss-as-arquillian-container-managed</artifactId>
-				<version>${version.jbossas_7}</version>
+				<version>${jbossas_7.version}</version>
 				<scope>test</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
-				<version>${version.log4j}</version>
+				<version>${log4j.version}</version>
 				<scope>test</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>${version.junit}</version>
+				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -185,6 +201,16 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.core</artifactId>
 		</dependency>
 
 		<!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
@@ -268,7 +294,7 @@
 					<dependency>
 						<groupId>org.hibernate</groupId>
 						<artifactId>hibernate-jpamodelgen</artifactId>
-						<version>${version.hibernate_jpamodelgen}</version>
+						<version>${hibernate_jpamodelgen.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -291,7 +317,7 @@
 				<dependency>
 					<groupId>org.jboss.as</groupId>
 					<artifactId>jboss-as-arquillian-container-managed</artifactId>
-					<version>${version.arquillian_container_jbossas}</version>
+					<version>${arquillian_container_jbossas.version}</version>
 					<scope>test</scope>
 				</dependency>
 			</dependencies>
@@ -303,7 +329,7 @@
 						<version>2.13</version>
 						<configuration>
 							<systemProperties>
-								<jboss.version>${version.jbossas_7}</jboss.version>
+								<jboss.version>${jbossas_7.version}</jboss.version>
 							</systemProperties>
 						</configuration>
 					</plugin>
@@ -322,7 +348,7 @@
 										<artifactItem>
 											<groupId>org.jboss.as</groupId>
 											<artifactId>jboss-as-dist</artifactId>
-											<version>${version.jbossas_7}</version>
+											<version>${jbossas_7.version}</version>
 											<type>zip</type>
 											<overWrite>false</overWrite>
 											<outputDirectory>${project.build.directory}</outputDirectory>

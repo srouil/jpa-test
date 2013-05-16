@@ -15,4 +15,6 @@ person_phone_number:
 person_email_address:
   - person_id: 1001
     address: lulu@home.ch
+  - person_id: 1001
+    address: lulu@latortue.org
     

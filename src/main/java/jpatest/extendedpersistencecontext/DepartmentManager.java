@@ -10,37 +10,37 @@ import javax.persistence.PersistenceContextType;
 
 @Stateful
 public class DepartmentManager {
-    
-	@PersistenceContext(unitName="primary", type = PersistenceContextType.EXTENDED)
-	EntityManager em;
-	
-	@Resource
-	SessionContext ctx;
-	
-	Department dept;
 
-	public void init(long deptId) {
-		dept = em.find(Department.class, deptId);
-	}
+    @PersistenceContext(unitName = "jpaTestPU", type = PersistenceContextType.EXTENDED)
+    EntityManager em;
 
-	public void setName(String name, boolean rollback) {
-		dept.setName(name);
-		if (rollback) {
-		    ctx.setRollbackOnly();
-		}
-	}
+    @Resource
+    SessionContext ctx;
 
-	public void addEmployee(long empId) {
-		Employee emp = em.find(Employee.class, empId);
-		dept.getEmployees().add(emp);
-		emp.setDepartment(dept);
-	}
+    Department dept;
 
-	public int getEmployeeCount() {
-	    return dept.getEmployees().size();
-	}
-	
-	@Remove
-	public void finished() {
-	}
+    public void init(long deptId) {
+        dept = em.find(Department.class, deptId);
+    }
+
+    public void setName(String name, boolean rollback) {
+        dept.setName(name);
+        if (rollback) {
+            ctx.setRollbackOnly();
+        }
+    }
+
+    public void addEmployee(long empId) {
+        Employee emp = em.find(Employee.class, empId);
+        dept.getEmployees().add(emp);
+        emp.setDepartment(dept);
+    }
+
+    public int getEmployeeCount() {
+        return dept.getEmployees().size();
+    }
+
+    @Remove
+    public void finished() {
+    }
 }

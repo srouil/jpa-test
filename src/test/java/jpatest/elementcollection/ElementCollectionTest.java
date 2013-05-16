@@ -29,7 +29,7 @@ public class ElementCollectionTest {
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "jpaTestPU")
     EntityManager em;
 
     /**
@@ -75,6 +75,8 @@ public class ElementCollectionTest {
         newPn.setNumber("+41799999999");
         pers.getPhoneNumbers().add(newPn);
 
+        pers.getEmailAddresses().add("lulu@latortue.org");
+
         // Then
         // Expected dataset
     }
@@ -105,6 +107,8 @@ public class ElementCollectionTest {
         newPn.setType(NumberType.MOBILE);
         newPn.setNumber("+41799999999");
         pers.getPhoneNumbers().add(newPn);
+
+        pers.getEmailAddresses().add("lulu@latortue.org");
 
         em.merge(pers);
 
