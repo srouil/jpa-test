@@ -3,7 +3,7 @@
    <createdBy>isc-rsa</createdBy>
    <createdTime>2013-05-15 15:31:31 UTC</createdTime>
    <changedBy>isc-rsa</changedBy>
-   <changedTime>2013-05-15 15:31:31 UTC</changedTime>
+   <changedTime>2013-05-15 15:43:15 UTC</changedTime>
    <autoRoute>false</autoRoute>
    <boxInbox>true</boxInbox>
    <showLegend>false</showLegend>
@@ -12,4 +12,31 @@
    <diagramColor>-1</diagramColor>
    <display>false</display>
    <notation>1</notation>
+   <objectViews>
+      <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="57FEC9AA-0AC0-A1F3-D005-42ADC8E8F644" otype="Table" vid="9AAA5E81-75A9-3E57-1ADA-99C5230FD730">
+         <bounds x="280" y="15" width="222" height="90"/>
+      </OView>
+      <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="5BE793CE-335D-157C-5933-3597B77A3F0C" otype="Table" vid="AEDCA50B-C50D-72ED-8800-E6A0815CF714">
+         <bounds x="550" y="15" width="214" height="70"/>
+      </OView>
+      <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="8239180E-03D8-4BD3-781D-3ED21D267FAD" otype="Table" vid="A7D91B83-BFCD-E443-E847-E133D0DE2835">
+         <bounds x="20" y="20" width="214" height="55"/>
+      </OView>
+   </objectViews>
+   <connectors>
+      <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="8251ADBA-C149-A846-68AF-3B13EAEA967A" otype="FKIndexAssociation" vid_source="9AAA5E81-75A9-3E57-1ADA-99C5230FD730" vid_target="AEDCA50B-C50D-72ED-8800-E6A0815CF714">
+         <lineWidth>1</lineWidth>
+         <points>
+            <point x="502" y="50"/>
+            <point x="550" y="50"/>
+         </points>
+      </Connector>
+      <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="C7FDF7D6-E3C0-073F-7B4C-A069A2D24D49" otype="FKIndexAssociation" vid_source="9AAA5E81-75A9-3E57-1ADA-99C5230FD730" vid_target="A7D91B83-BFCD-E443-E847-E133D0DE2835">
+         <lineWidth>1</lineWidth>
+         <points>
+            <point x="280" y="47"/>
+            <point x="234" y="47"/>
+         </points>
+      </Connector>
+   </connectors>
 </Diagram>
