@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="PERSON_EMAIL_ADDRESS" id="8239180E-03D8-4BD3-781D-3ED21D267FAD" directorySegmentName="seg_0">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <logging>YES</logging>
+   <columnProxies>
+      <ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="PERSON_ID" id="7EE55022-9346-8DEA-529A-6A0FF174631C">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+         <ownerDesignName>ddl</ownerDesignName>
+      </ColumnProxy>
+      <ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ADDRESS" id="9D6D1341-C5AF-4001-7476-EC2940428342">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+         <ownerDesignName>ddl</ownerDesignName>
+      </ColumnProxy>
+   </columnProxies>
+   <foreignKeys>
+      <ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_PERS_EMAIL_ADDR_PERS" id="DFA8BCE9-AD3A-E5B6-0E08-BCC6CAF1545F">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:43:05 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:43:05 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+      </ForeignKey>
+   </foreignKeys>
+</TableProxyOraclev11g>

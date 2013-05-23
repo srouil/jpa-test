@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="PERSON" id="57FEC9AA-0AC0-A1F3-D005-42ADC8E8F644" directorySegmentName="seg_0">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <logging>YES</logging>
+   <columnProxies>
+      <ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="FIRST_NAME" id="01C544B7-27EB-1C5A-318F-CB9CECAF2CBA">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+         <ownerDesignName>ddl</ownerDesignName>
+      </ColumnProxy>
+      <ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="LAST_NAME" id="9947DB08-D3DC-A3CB-1814-BF9E5B5CD4BA">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+         <ownerDesignName>ddl</ownerDesignName>
+      </ColumnProxy>
+      <ColumnProxy class="oracle.dbtools.crest.model.design.storage.oracle.v11g.ColumnProxyOraclev11g" name="ID" id="BAB12E59-394D-CF0C-0CEB-CB6C3B9968F5">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+         <ownerDesignName>ddl</ownerDesignName>
+      </ColumnProxy>
+   </columnProxies>
+   <primaryKeys>
+      <PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PERSON_PK" id="20449967-7CA9-5683-0C06-59ABED9CFBF8">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:42:55 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:42:55 UTC</changedTime>
+         <ownerDesignName>ddl</ownerDesignName>
+         <indexSort>NO</indexSort>
+      </PrimaryKey>
+   </primaryKeys>
+</TableProxyOraclev11g>

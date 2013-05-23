@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.storage.oracle.v11g.StorageDesignOraclev11g>
+   <object objectType="SType" objectID="47E390DE-0671-C4B1-8428-0F45CBEE18F8" name="SDO_GEOMETRY" seqName="seg_0"/>
+   <object objectType="Table" objectID="57FEC9AA-0AC0-A1F3-D005-42ADC8E8F644" name="PERSON" seqName="seg_0"/>
+   <object objectType="Table" objectID="5BE793CE-335D-157C-5933-3597B77A3F0C" name="PERSON_PHONE_NUMBER" seqName="seg_0"/>
+   <object objectType="Table" objectID="8239180E-03D8-4BD3-781D-3ED21D267FAD" name="PERSON_EMAIL_ADDRESS" seqName="seg_0"/>
+</oracle.dbtools.crest.model.design.storage.oracle.v11g.StorageDesignOraclev11g>

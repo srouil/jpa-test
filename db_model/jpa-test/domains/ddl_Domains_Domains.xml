@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="ddl_Domains_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_255" id="9DF3663E-B5E6-8689-2498-263D0EDC65D8">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:41:50 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:41:50 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>255</dataTypeSize>
+         <fileName>ddl_Domains_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

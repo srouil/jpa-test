@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="5BE793CE-335D-157C-5933-3597B77A3F0C" directorySegmentName="seg_0" name="PERSON_PHONE_NUMBER">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-15 15:43:05 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-15 15:43:44 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <importedID>5EC9E42D-C91F-0470-E8A5-AF82D29703E9</importedID>
+   <fonts>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Title</foType>
+         <fontStyle>1</fontStyle>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Column</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Datatype</foType>
+         <colorRGB>-16744448</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>PK Element</foType>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>FK Element</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>UK Element</foType>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Not Null</foType>
+         <colorRGB>-65536</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Key</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+   </fonts>
+   <columns>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="PERSON_ID" id="BB8A3D6A-3A79-3D45-5E05-4A2450C01265">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:43:05 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:43:05 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <importedID>CB8F81DF-C4C9-1052-1E8D-94088A6C6509</importedID>
+         <use>0</use>
+         <delegate>BAB12E59-394D-CF0C-0CEB-CB6C3B9968F5</delegate>
+         <associations>
+            <colAssociation fkAssociation="8251ADBA-C149-A846-68AF-3B13EAEA967A" referredColumn="BAB12E59-394D-CF0C-0CEB-CB6C3B9968F5"/>
+         </associations>
+      </Column>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="NBR" id="0A4D583E-ED7E-C40B-0126-BDC2E58BC440">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:43:05 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:43:44 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <importedID>D28473CF-EC6D-0B88-6EE8-D3122369EF50</importedID>
+         <nullsAllowed>true</nullsAllowed>
+         <use>0</use>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+         <domain>9DF3663E-B5E6-8689-2498-263D0EDC65D8</domain>
+      </Column>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="TYPE" id="6B24FC27-1EA5-B8D7-342B-D8F956E3A843">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:43:05 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:43:44 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <importedID>FBA436A5-1E44-FE93-CF7E-A87480278C9E</importedID>
+         <nullsAllowed>true</nullsAllowed>
+         <use>0</use>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+         <domain>9DF3663E-B5E6-8689-2498-263D0EDC65D8</domain>
+      </Column>
+   </columns>
+   <indexes>
+      <ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="7F82FF40-E8B9-7992-E863-D80198AE9208" name="FK_PERS_PHONE_PERS">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-15 15:43:05 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-15 15:43:05 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <indexColumnUsage>
+            <colUsage columnID="BB8A3D6A-3A79-3D45-5E05-4A2450C01265"/>
+         </indexColumnUsage>
+      </ind_PK_UK>
+   </indexes>
+</Table>
