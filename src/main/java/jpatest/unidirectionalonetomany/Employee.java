@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,13 +25,23 @@ public class Employee {
 
     private String lastName;
 
-    @OneToMany
+    /** OneToMany as Set with link table */
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinTable(name = "employee_phone", joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns = @JoinColumn(name = "phone_id"))
     private Set<Phone> phones = new HashSet<Phone>();
 
-    @OneToMany
-    @JoinTable(name = "employee_project", joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
+    /** OneToMany as List with link table */
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinTable(
+            name = "employee_project", 
+            joinColumns = @JoinColumn(name = "employee_id"), 
+            inverseJoinColumns = @JoinColumn(name = "project_id"))
     private List<Project> projects = new ArrayList<Project>();
+
+    /** OneToMany as Set with foreign key */
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "employee_id")
+    private List<EmailAddress> emailAddresses = new ArrayList<EmailAddress>();
 
     public Long getId() {
         return id;
@@ -58,6 +69,10 @@ public class Employee {
 
     public List<Project> getProjects() {
         return projects;
+    }
+
+    public List<EmailAddress> getEmailAddresses() {
+        return emailAddresses;
     }
 
 }

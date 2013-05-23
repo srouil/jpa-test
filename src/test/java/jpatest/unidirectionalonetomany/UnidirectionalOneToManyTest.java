@@ -34,8 +34,7 @@ public class UnidirectionalOneToManyTest {
 
     @Deployment
     public static Archive<?> createTestArchive() {
-        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Employee.class.getPackage())
-                .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Employee.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -52,22 +51,40 @@ public class UnidirectionalOneToManyTest {
 
         // When
         Employee employee = em.find(Employee.class, 1001L);
-        
+
+        // We use CascadeType.ALL for all collections
+
         // Here Hibernate will issue one insert into employee_phone because association is mapped as Set
         Phone phone = new Phone();
         phone.setNumber("+41264300228");
-        em.persist(phone);
         employee.getPhones().add(phone);
-        
+
+        // Here Hibernate will issue one "delete form employee_phone where employee_id = ? and phone_id = ?" because association is mapped as Set
+        Phone phoneToRemove = em.find(Phone.class, 1001L);
+        employee.getPhones().remove(phoneToRemove);
+
         // Here Hibernate will first delete all records from employee_phone for this employee 
         // and re-insert all elements of collections into employee_project because association is mapped as List (bag semantic)
         Project project = new Project();
         project.setName("Fiasco");
-        em.persist(project);
         employee.getProjects().add(project);
+
+        Project projectToRemove = em.find(Project.class, 1001L);
+        employee.getProjects().remove(projectToRemove);
+
+        // Here Hibernate will issue one insert into email_address and an update to set foreign key column
+        // This work with both Set and List
+        EmailAddress emailAddress = new EmailAddress();
+        emailAddress.setAddress("test@gmail.com");
+        emailAddress.setDisplayName("Test");
+        employee.getEmailAddresses().add(emailAddress);
+
+        // Here Hibernate will issue one update to reset foreign key to null
+        EmailAddress emailAddressToRemove = em.find(EmailAddress.class, 1001L);
+        employee.getEmailAddresses().remove(emailAddressToRemove);
 
         // Then
         // Expected dataset
+        // SQL statements in log
     }
-    
 }

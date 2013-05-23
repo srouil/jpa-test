@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="unidirectional_onetomany_linktable" id="BB0F9536-D2A6-5BCA-7959-8BA8598EDB84" mainViewID="7E00FD20-A5E5-8BF1-6F98-0D3B18F089D4">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-23 15:50:37 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-23 16:16:35 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <shouldBeOpen>false</shouldBeOpen>
+   <selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+</relationalModel>

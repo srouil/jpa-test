@@ -3,27 +3,28 @@ employee:
     firstname: Roger
     lastname: Legros
 phone:
-  - id: 1001
-    number: "+41791234567"
   - id: 1002
     number: "+41799999999"
-  - id: 1
+  - id: 2
     number: "+41264300228"
 project:
-  - id: 1001
-    name: SuperProject
-  - id: 2
+  - id: 3
     name: Fiasco
 employee_phone:
   - employee_id: 1001 
-    phone_id: 1001 
-  - employee_id: 1001 
     phone_id: 1002 
   - employee_id: 1001 
-    phone_id: 1 
+    phone_id: 2 
 employee_project:
   - employee_id: 1001 
-    project_id: 1001 
-  - employee_id: 1001 
-    project_id: 2 
+    project_id: 3 
+email_address:
+  - id: 1002
+    employee_id: 1001
+    address: roger.legros@bluewin.ch
+    display_name: Roger Legros
+  - id: 1
+    employee_id: 1001
+    address: test@gmail.com
+    display_name: Test
     

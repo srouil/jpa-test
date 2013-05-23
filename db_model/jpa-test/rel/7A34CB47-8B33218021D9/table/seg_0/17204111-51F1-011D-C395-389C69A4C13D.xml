@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="17204111-51F1-011D-C395-389C69A4C13D" directorySegmentName="seg_0" name="EMPLOYEE">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-23 16:17:31 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-23 16:18:16 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <pkName>EMPLOYEE_PK</pkName>
+   <fonts>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Title</foType>
+         <fontStyle>1</fontStyle>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Column</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Datatype</foType>
+         <colorRGB>-16744448</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>PK Element</foType>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>FK Element</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>UK Element</foType>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Not Null</foType>
+         <colorRGB>-65536</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Key</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+   </fonts>
+   <columns>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="ID" id="19C686D3-9628-8F41-9081-D893BF28A227">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 16:18:16 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 16:18:16 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <use>1</use>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+      </Column>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="FIRST_NAME" id="980C3EC4-1049-CAB9-BB57-623D9C6AD495">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 16:18:16 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 16:18:16 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <nullsAllowed>true</nullsAllowed>
+         <use>1</use>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+         <dataTypeSize>255</dataTypeSize>
+      </Column>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="LAST_NAME" id="99136A91-B00E-742C-CBE6-01F73FA12A00">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 16:18:16 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 16:18:16 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <nullsAllowed>true</nullsAllowed>
+         <use>1</use>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+         <dataTypeSize>255</dataTypeSize>
+      </Column>
+   </columns>
+   <indexes>
+      <ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="0F55E0DE-19DD-679A-47AE-AE73D6055F9B" name="EMPLOYEE_PK">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 16:18:16 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 16:18:16 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <pk>true</pk>
+         <indexState>Primary Constraint</indexState>
+         <indexColumnUsage>
+            <colUsage columnID="19C686D3-9628-8F41-9081-D893BF28A227"/>
+         </indexColumnUsage>
+      </ind_PK_UK>
+   </indexes>
+</Table>

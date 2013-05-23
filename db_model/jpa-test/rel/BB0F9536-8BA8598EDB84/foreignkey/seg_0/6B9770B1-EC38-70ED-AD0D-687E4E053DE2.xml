@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" id="6B9770B1-EC38-70ED-AD0D-687E4E053DE2" directorySegmentName="seg_0" name="EMP_ADDR_EMPLOYEE_FK">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-23 15:53:40 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-23 15:54:08 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <containerWithKeyObject>FAE717F1-B57B-E81F-F056-504FF9FFCE72</containerWithKeyObject>
+   <deleteRule>RESTRICT</deleteRule>
+   <localFKIndex>D961AFAE-D456-928E-9BC4-26FE4BFDF050</localFKIndex>
+   <keyObject>3C2DD78C-FE56-B9AC-7B94-9902A22110D0</keyObject>
+   <mandatory>true</mandatory>
+   <transferable>true</transferable>
+</FKIndexAssociation>

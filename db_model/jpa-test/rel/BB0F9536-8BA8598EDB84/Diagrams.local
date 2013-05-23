@@ -1,4 +1,4 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
-   <object objectType="main_view" objectID="1A686696-8EE1-830E-8DF8-E779AF5419AD" name="elementcollection" visible="true"/>
+   <object objectType="main_view" objectID="7E00FD20-A5E5-8BF1-6F98-0D3B18F089D4" name="unidirectional_onetomany_linktable" visible="true"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

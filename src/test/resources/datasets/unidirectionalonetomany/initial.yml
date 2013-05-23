@@ -18,4 +18,12 @@ employee_phone:
 employee_project:
   - employee_id: 1001 
     project_id: 1001 
-    
+email_address:
+  - id: 1001
+    employee_id: 1001
+    address: roger@gmail.com
+    display_name: Roger Legros
+  - id: 1002
+    employee_id: 1001
+    address: roger.legros@bluewin.ch
+    display_name: Roger Legros

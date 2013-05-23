@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Diagram class="oracle.dbtools.crest.swingui.relational.DPVRelational" name="unidirectional_onetomany_linktable" id="7E00FD20-A5E5-8BF1-6F98-0D3B18F089D4">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-23 15:50:37 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-23 16:16:35 UTC</changedTime>
+   <autoRoute>false</autoRoute>
+   <boxInbox>true</boxInbox>
+   <showLegend>false</showLegend>
+   <showLabels>false</showLabels>
+   <showGrid>false</showGrid>
+   <diagramColor>-1</diagramColor>
+   <display>false</display>
+   <notation>1</notation>
+   <objectViews>
+      <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="2423C0E9-8F80-BB60-5318-DAD39A0DE390" otype="Table" vid="E335CD68-D7F8-9349-8806-9B649A7F1912">
+         <bounds x="24" y="17" width="170" height="84"/>
+      </OView>
+      <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="43714A30-2998-3E0F-1271-88870C0BB343" otype="Table" vid="47829429-0C6D-83AE-5624-5B34EDE74264">
+         <bounds x="637" y="21" width="170" height="70"/>
+      </OView>
+      <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="FAE717F1-B57B-E81F-F056-504FF9FFCE72" otype="Table" vid="286F8D20-BA2E-4219-5BDA-62B758F013DB">
+         <bounds x="260" y="21" width="321" height="70"/>
+      </OView>
+   </objectViews>
+   <connectors>
+      <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="6B9770B1-EC38-70ED-AD0D-687E4E053DE2" otype="FKIndexAssociation" vid_source="E335CD68-D7F8-9349-8806-9B649A7F1912" vid_target="286F8D20-BA2E-4219-5BDA-62B758F013DB">
+         <lineWidth>1</lineWidth>
+         <points>
+            <point x="194" y="56"/>
+            <point x="260" y="56"/>
+         </points>
+      </Connector>
+      <Connector class="oracle.dbtools.crest.swingui.relational.TVFKRelation" oid="D9E4B9A6-74DC-38E8-1AEE-E83BADF18F91" otype="FKIndexAssociation" vid_source="47829429-0C6D-83AE-5624-5B34EDE74264" vid_target="286F8D20-BA2E-4219-5BDA-62B758F013DB">
+         <lineWidth>1</lineWidth>
+         <points>
+            <point x="637" y="56"/>
+            <point x="581" y="56"/>
+         </points>
+      </Connector>
+   </connectors>
+</Diagram>

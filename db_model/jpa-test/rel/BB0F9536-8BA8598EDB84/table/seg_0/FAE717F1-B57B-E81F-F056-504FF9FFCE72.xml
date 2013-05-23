@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" id="FAE717F1-B57B-E81F-F056-504FF9FFCE72" directorySegmentName="seg_0" name="EMPLOYEE_ADDRESS">
+   <createdBy>isc-rsa</createdBy>
+   <createdTime>2013-05-23 15:51:23 UTC</createdTime>
+   <changedBy>isc-rsa</changedBy>
+   <changedTime>2013-05-23 15:56:29 UTC</changedTime>
+   <ownerDesignName>jpa-test</ownerDesignName>
+   <pkName>EMPLOYEE_ADDRESS_PK</pkName>
+   <fonts>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Title</foType>
+         <fontStyle>1</fontStyle>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Column</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Datatype</foType>
+         <colorRGB>-16744448</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>PK Element</foType>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>FK Element</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>UK Element</foType>
+         <colorRGB>-16776961</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Not Null</foType>
+         <colorRGB>-65536</colorRGB>
+      </FontObject>
+      <FontObject class="oracle.dbtools.crest.model.design.FontObjectWr">
+         <foType>Key</foType>
+         <colorRGB>-16777216</colorRGB>
+      </FontObject>
+   </fonts>
+   <columns>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="EMPLOYEE_ID" id="1D5DABB9-6ED6-54D5-E5A6-08BD8931C9AC">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 15:53:40 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 15:54:08 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <use>1</use>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+         <delegate>9C17D5E3-5AA5-3BCF-08E1-EF5CBA9E251B</delegate>
+         <previousColumn>false</previousColumn>
+         <associations>
+            <colAssociation fkAssociation="6B9770B1-EC38-70ED-AD0D-687E4E053DE2" referredColumn="9C17D5E3-5AA5-3BCF-08E1-EF5CBA9E251B"/>
+         </associations>
+      </Column>
+      <Column class="oracle.dbtools.crest.model.design.relational.Column" name="ADDRESS_ID" id="102FB08C-ECCE-1F8F-0F66-7C2B94FF3A05">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 15:54:14 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 15:54:24 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <use>1</use>
+         <logicalDatatype>LOGDT019</logicalDatatype>
+         <delegate>CECA8D51-82A6-5161-4026-88A60CCF9BB6</delegate>
+         <previousColumn>false</previousColumn>
+         <associations>
+            <colAssociation fkAssociation="D9E4B9A6-74DC-38E8-1AEE-E83BADF18F91" referredColumn="CECA8D51-82A6-5161-4026-88A60CCF9BB6"/>
+         </associations>
+      </Column>
+   </columns>
+   <indexes>
+      <ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="8F1CC757-E1CC-C57A-991E-F86D5F6B1264" name="EMPLOYEE_ADDRESS_PK">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 15:56:29 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 15:56:29 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <pk>true</pk>
+         <indexState>Primary Constraint</indexState>
+         <indexColumnUsage>
+            <colUsage columnID="1D5DABB9-6ED6-54D5-E5A6-08BD8931C9AC"/>
+            <colUsage columnID="102FB08C-ECCE-1F8F-0F66-7C2B94FF3A05"/>
+         </indexColumnUsage>
+      </ind_PK_UK>
+      <ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="D961AFAE-D456-928E-9BC4-26FE4BFDF050" name="EMP_ADDR_EMPLOYEE_FK">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 15:53:40 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 15:54:08 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <indexColumnUsage>
+            <colUsage columnID="1D5DABB9-6ED6-54D5-E5A6-08BD8931C9AC"/>
+         </indexColumnUsage>
+      </ind_PK_UK>
+      <ind_PK_UK class="oracle.dbtools.crest.model.design.relational.Index" id="94167B51-E93F-2325-FAB4-D7C21B015AE8" name="EMP_ADDR_ADDRESS_FK">
+         <createdBy>isc-rsa</createdBy>
+         <createdTime>2013-05-23 15:54:14 UTC</createdTime>
+         <changedBy>isc-rsa</changedBy>
+         <changedTime>2013-05-23 15:54:24 UTC</changedTime>
+         <ownerDesignName>jpa-test</ownerDesignName>
+         <indexColumnUsage>
+            <colUsage columnID="102FB08C-ECCE-1F8F-0F66-7C2B94FF3A05"/>
+         </indexColumnUsage>
+      </ind_PK_UK>
+   </indexes>
+</Table>

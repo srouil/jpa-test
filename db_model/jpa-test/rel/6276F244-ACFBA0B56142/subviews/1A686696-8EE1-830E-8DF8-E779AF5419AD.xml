@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Diagram class="oracle.dbtools.crest.swingui.relational.DPVRelational" name="Relational_1" id="1A686696-8EE1-830E-8DF8-E779AF5419AD">
+<Diagram class="oracle.dbtools.crest.swingui.relational.DPVRelational" name="elementcollection" id="1A686696-8EE1-830E-8DF8-E779AF5419AD">
    <createdBy>isc-rsa</createdBy>
    <createdTime>2013-05-15 15:31:31 UTC</createdTime>
    <changedBy>isc-rsa</changedBy>
-   <changedTime>2013-05-15 15:43:15 UTC</changedTime>
+   <changedTime>2013-05-23 16:17:11 UTC</changedTime>
    <autoRoute>false</autoRoute>
    <boxInbox>true</boxInbox>
    <showLegend>false</showLegend>
