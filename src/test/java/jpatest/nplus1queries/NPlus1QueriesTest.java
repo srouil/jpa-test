@@ -31,8 +31,7 @@ public class NPlus1QueriesTest {
 
     @Deployment
     public static Archive<?> createTestArchive() {
-        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Department.class.getPackage())
-                .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Department.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -56,7 +55,7 @@ public class NPlus1QueriesTest {
         // Then
         // 3 queries (see log)
     }
-    
+
     /**
      * Test showing named query with fetch clauses
      */
@@ -72,7 +71,7 @@ public class NPlus1QueriesTest {
         // Then
         // 1 query (see log)
     }
-    
+
     /**
      * Test showing how associations are loaded when using EntityManager.find()
      */
@@ -90,7 +89,27 @@ public class NPlus1QueriesTest {
     }
 
     /**
-     * Test showing how XtoMany are fetched
+     * Test showing how XtoMany are lazily fetched
+     */
+    @Test
+    public void testFindXtoMany() {
+
+        // Given
+        // Initial dataset
+
+        // When
+        List<Department> departments = em.createNamedQuery(Department.SELECT_ALL_DEPARTMENTS, Department.class).getResultList();
+
+        // Then
+        // 2 queries 
+        // - select * from department
+        // - select * from employee e where e.department_id = 1
+        Assert.assertEquals("2 departments are found", 2, departments.size());
+        System.out.println(departments.get(0).getEmployees().iterator().next().getFirstName());
+    }
+
+    /**
+     * Test showing how XtoMany are eagerly fetched by query
      */
     @Test
     public void testFindFetchXtoMany() {
@@ -99,7 +118,7 @@ public class NPlus1QueriesTest {
         // Initial dataset
 
         // When
-        List<Department> departments = em.createNamedQuery(Department.SELECT_ALL_DEPARTMENTS, Department.class).getResultList();
+        List<Department> departments = em.createNamedQuery(Department.SELECT_ALL_DEPARTMENTS_FETCH_ALL, Department.class).getResultList();
 
         // Then
         // 1 query with joins

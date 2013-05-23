@@ -38,7 +38,7 @@ public class Employee {
     private Department department;
 
     @OneToOne
-    @JoinColumn(name= "employee_info_id")
+    @JoinColumn(name = "employee_info_id")
     private EmployeeInfo employeeInfo;
 
     public Long getId() {
@@ -61,5 +61,4 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    
 }
