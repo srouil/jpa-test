@@ -112,7 +112,7 @@ public class GenericEnumUserType implements UserType, ParameterizedType {
 
     @Override
     public Object nullSafeGet(ResultSet rs, String[] names, SessionImplementor session, Object owner) throws HibernateException, SQLException {
-        Object identifier = type.get(rs, names[0], session);
+        Object identifier = type.nullSafeGet(rs, names[0], session);
         if (identifier == null) {
             return null;
         }
