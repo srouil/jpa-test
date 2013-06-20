@@ -1,7 +1,13 @@
 package jpatest.jodatime;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TemporalType;
+import javax.persistence.TypedQuery;
+
+import junit.framework.Assert;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -10,6 +16,7 @@ import org.jboss.arquillian.persistence.ShouldMatchDataSet;
 import org.jboss.arquillian.persistence.TestExecutionPhase;
 import org.jboss.arquillian.persistence.TransactionMode;
 import org.jboss.arquillian.persistence.Transactional;
+import org.jboss.arquillian.persistence.UsingDataSet;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -43,8 +50,10 @@ public class JodaTimeTest {
     EntityManager em;
 
     /**
+     * Testing showing persist of a DateTime attribute mapped with Jadira UserType
      */
     @Test
+    @UsingDataSet("jodatime/initial.yml")
     @ShouldMatchDataSet("jodatime/expected.yml")
     public void testPersist() {
 
@@ -60,4 +69,45 @@ public class JodaTimeTest {
         // Expected dataset
     }
 
+    /**
+     * Test showing that Hibernate will handle a DateTime parameter used in a comparison with a mapped DateTime attribute properly. 
+     */
+    @Test
+    @UsingDataSet("jodatime/initial.yml")
+    public void testQueryObjectParameter() {
+
+        // Given
+        // Initial dataset
+
+        // When
+        TypedQuery<Event> q = em.createNamedQuery(Event.SELECT_EVENTS_AFTER, Event.class);
+        q.setParameter("instant", new DateTime(2013, 01, 01, 0, 0));
+        List<Event> events = q.getResultList();
+
+        // Then
+        Assert.assertEquals(1, events.size());
+        Assert.assertEquals(new DateTime(2013, 01, 01, 11, 0), events.get(0).getCreateTs());
+    }
+
+    /**
+     * Test showing that DateTime must be passed as java.util.Date (and when needed TemporalType be specified) if parameter 
+     * is not directly used in a comparison with a mapped DateTime attribute. Otherwise DateTime parameter is interpreted as 
+     * Object (serialized)
+     */
+    @Test
+    @UsingDataSet("jodatime/initial.yml")
+    public void testQueryTemporalTypeParameter() {
+
+        // Given
+        // Initial dataset
+
+        // When
+        TypedQuery<Event> q = em.createNamedQuery(Event.SELECT_EVENTS_IN_YEAR, Event.class);
+        q.setParameter("instant", new DateTime(2013, 07, 23, 10, 0).toDate(), TemporalType.TIMESTAMP);
+        List<Event> events = q.getResultList();
+
+        // Then
+        Assert.assertEquals(1, events.size());
+        Assert.assertEquals(new DateTime(2013, 01, 01, 11, 0), events.get(0).getCreateTs());
+    }
 }
