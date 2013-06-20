@@ -1,0 +1,5 @@
+event:
+  - id: 1000
+    text: Some text
+    create_ts: "2013-01-01 11:00:00.000"
+    

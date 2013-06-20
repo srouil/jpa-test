@@ -1,0 +1,14 @@
+department:
+  - id: 2
+    name: QA
+    manager_emp_id: 1
+employee:
+  - id: 1
+    firstname: John
+    lastname: Tester
+    department_id: [null]
+  - id: 3
+    firstname: Lulu
+    lastname: Latortue
+    department_id: 2
+    

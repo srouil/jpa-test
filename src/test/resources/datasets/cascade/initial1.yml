@@ -1,0 +1,4 @@
+department:
+  - id: 1000
+    name: R&D
+    manager_emp_id: [null]

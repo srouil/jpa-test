@@ -1,0 +1,9 @@
+department:
+  - id: 1000
+    name: R&D
+    manager_emp_id: [null]
+employee: 
+  - id: 1001
+    firstname: Lulu
+    lastname: Latortue
+    department_id: 1000
