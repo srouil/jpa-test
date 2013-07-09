@@ -29,6 +29,9 @@ standalone.xml is overwritten by Maven build every time JBoss AS is unpacked.
 	...
 </console-handler>
 ...
+<logger category="org.hibernate.SQL">
+	<level name="DEBUG" />
+</logger>
 <logger category="org.hibernate.type.descriptor.sql.BasicBinder">
 	<level name="TRACE" />
 </logger>

@@ -1,0 +1,10 @@
+department:
+  - id: 1001
+    name: R&D
+    version: 0
+employee:
+  - id: 1001
+    firstname: Roger
+    lastname: Legros
+    department_id: 1001
+    version: 0
