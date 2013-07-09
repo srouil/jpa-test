@@ -8,4 +8,8 @@ employee:
     lastname: Legros
     department_id: 1001
     version: 1
-    
+  - id: 1002
+    firstname: Lulu
+    lastname: Latortue
+    department_id: [null]
+    version: 0

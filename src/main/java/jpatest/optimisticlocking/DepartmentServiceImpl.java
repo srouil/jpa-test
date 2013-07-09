@@ -27,6 +27,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public Department findDepartmentById(Long id, LockModeType lockModeType) {
         TypedQuery<Department> q = em.createNamedQuery(Department.SELECT_DEPARTMENT_BY_ID, Department.class);
         q.setParameter("departmentId", id);
+        q.getLockMode();
         q.setLockMode(lockModeType);
 
         return q.getSingleResult();
@@ -46,4 +47,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         dept.setName("Test");
     }
 
+    public Employee findEmployeeById(Long employeeId) {
+        return em.find(Employee.class, employeeId);
+    }
 }

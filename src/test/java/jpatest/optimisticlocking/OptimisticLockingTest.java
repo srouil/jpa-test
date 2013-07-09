@@ -100,9 +100,7 @@ public class OptimisticLockingTest {
         // When
 
         // add new employee to association
-        Employee emp = new Employee();
-        emp.setFirstName("Lulu");
-        emp.setLastName("Latortue");
+        Employee emp = departmentService.findEmployeeById(1002L);
         emp.setDepartment(dept);
         dept.getEmployees().add(emp);
 

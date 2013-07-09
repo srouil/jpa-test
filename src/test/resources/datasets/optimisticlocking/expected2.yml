@@ -8,9 +8,9 @@ employee:
     lastname: Legros
     department_id: 1001
     version: 0
-  - id: 1
+  - id: 1002
     firstname: Lulu
     lastname: Latortue
     department_id: 1001
-    version: 0
+    version: 1
     
