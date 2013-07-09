@@ -12,6 +12,9 @@
          <!-- Properties for Hibernate, defined here at the moment since I cannot manage to add hibernate.properties with ShrinkWrap ... -->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />         
          <property name="jadira.usertype.databaseZone" value="jvm" />
+
+         <property name="javax.persistence.lock.timeout" value="10000" />
+
       </properties>
    </persistence-unit>
 </persistence>
