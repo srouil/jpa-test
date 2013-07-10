@@ -2,5 +2,5 @@ package jpatest.pessimisticlocking;
 
 public interface LockService {
 
-    void lock(String resourceName);
+    void lock(String resourceName) throws LockingTimeoutException;
 }

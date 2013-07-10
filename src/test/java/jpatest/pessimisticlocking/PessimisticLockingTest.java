@@ -4,6 +4,8 @@ import javax.ejb.EJB;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import jpatest.Resources;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.persistence.Cleanup;
@@ -28,7 +30,7 @@ public class PessimisticLockingTest {
     @Deployment
     public static Archive<?> createTestArchive() {
 
-        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Resource.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Resource.class.getPackage()).addClass(Resources.class).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -40,15 +42,16 @@ public class PessimisticLockingTest {
 
     /**
      * Test showing use of pessimistic locking to acquire exclusive lock on a named resource.
-     *  
-     * Exception handling still need investigation:
-     * we get EJBTransactionRolledbackException -> GenericJdbcException instead of LockTimeoutException or 
-     * essimisticLockException as defined in JPA specification. 
      */
     @Test
     public void testLock() {
 
-        // Use low values of sleep time because timeout of JBoss H2 DB is very low (probably 1000 ms)
+        // Use low values of sleep time because timeout of JBoss H2 DB is very low (around 1000 ms).
+        // With Oracle, higher values can be used, timeout is higher.         
+        // Oracle Dialect will generate SQL query "SELECT ... FOR UPATE WAIT 30" that allow to arbitrary set timeout.
+
+        // With both DBs, I do not managed to get LockTimeoutException that should not rollback the TX.
+        // javax.persistence.PersistenceException -> org.hibernate.exception.GenericJDBCException is always thrown.  
         Thread t1 = new Thread() {
 
             @Override

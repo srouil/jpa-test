@@ -2,8 +2,10 @@ package jpatest.pessimisticlocking;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "RSRCE")
 public class Resource {
 
     @Id
@@ -16,5 +18,4 @@ public class Resource {
     public void setName(String name) {
         this.name = name;
     }
-
 }

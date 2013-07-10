@@ -35,3 +35,31 @@ standalone.xml is overwritten by Maven build every time JBoss AS is unpacked.
 <logger category="org.hibernate.type.descriptor.sql.BasicBinder">
 	<level name="TRACE" />
 </logger>
+
+Add following configuration to standalone.xml to use an oracle datasource. 
+This requires also Oracle module located under documentation/jboss modules. 
+
+<datasource jndi-name="java:jboss/datasources/OracleDS" pool-name="OracleDS">
+	<connection-url>jdbc:oracle:thin:@ejpdxd9007.isc.ejpd.admin.ch:25000:gendb3e</connection-url>
+	<driver>com.oracle</driver>
+	<transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+	<pool>
+		<min-pool-size>1</min-pool-size>
+		<max-pool-size>10</max-pool-size>
+		<prefill>true</prefill>
+	</pool>
+	<security>
+		<user-name>barbara</user-name>
+		<password>barbara$mts</password>
+	</security>
+	<statement>
+		<prepared-statement-cache-size>32</prepared-statement-cache-size>
+		<share-prepared-statements />
+	</statement>
+</datasource>
+
+<driver name="com.oracle" module="com.oracle">
+	<xa-datasource-class>oracle.jdbc.driver.OracleDriver</xa-datasource-class>
+</driver>
+
+
