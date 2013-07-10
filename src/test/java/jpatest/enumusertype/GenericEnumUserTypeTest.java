@@ -2,6 +2,7 @@ package jpatest.enumusertype;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import junit.framework.Assert;
 
@@ -38,7 +39,7 @@ public class GenericEnumUserTypeTest {
     EntityManager em;
 
     @Test
-    @UsingDataSet("enumusertype/initial.yml")
+    @UsingDataSet("enumusertype/initial1.yml")
     public void testFind() {
 
         // Given
@@ -52,7 +53,7 @@ public class GenericEnumUserTypeTest {
     }
 
     @Test
-    @UsingDataSet("enumusertype/initial.yml")
+    @UsingDataSet("enumusertype/initial1.yml")
     @ShouldMatchDataSet("enumusertype/expected.yml")
     public void testCreateUpdate() {
 
@@ -71,6 +72,21 @@ public class GenericEnumUserTypeTest {
 
         // Then
         // Expected dataset
+    }
+
+    @Test
+    @UsingDataSet("enumusertype/initial2.yml")
+    public void testQuery() {
+
+        // Given
+        // Initial dataset
+
+        // When
+        TypedQuery<Order> q = em.createNamedQuery(Order.SELECT_PAID_ORDERS_BY_DELIVERY_STATUS, Order.class);
+        q.setParameter("deliveryStatus", DeliveryStatus.DELIVERED);
+
+        // Then
+        Assert.assertEquals(1, q.getResultList().size());
     }
 
 }

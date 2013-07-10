@@ -8,9 +8,11 @@ import java.util.Map;
  */
 public enum OrderState {
 
-    NEW(0), PAID(10), ERROR(-1);
+    NEW(0), PAID(OrderState.CODE_PAID), ERROR(-1);
 
     private static Map<Integer, OrderState> valuesByCode = new HashMap<Integer, OrderState>();
+
+    public static final int CODE_PAID = 10;
 
     static {
         for (OrderState value : OrderState.values()) {

@@ -7,9 +7,7 @@ import static org.junit.Assert.assertNull;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import jpatest.inheritance.Employee;
-import jpatest.inheritance.PartTimeEmployee;
+import javax.persistence.TypedQuery;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -33,8 +31,7 @@ public class InheritanceTest {
 
     @Deployment
     public static Archive<?> createTestArchive() {
-        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Employee.class.getPackage())
-                .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Employee.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -55,9 +52,14 @@ public class InheritanceTest {
         Query q1 = em.createQuery("select e from Employee e");
         Query q2 = em.createQuery("select pe from PartTimeEmployee pe");
 
+        TypedQuery<Subject> q3 = em.createNamedQuery(Subject.SELECT_SUBJECTS_BY_NAME_LIKE, Subject.class);
+        q3.setParameter("namePattern", "leg%");
+
         // Then
         assertEquals(2, q1.getResultList().size());
         assertEquals(1, q2.getResultList().size());
+
+        assertEquals(2, q3.getResultList().size());
     }
 
     /**

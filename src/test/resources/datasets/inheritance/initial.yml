@@ -9,3 +9,14 @@ employee:
     lastname: Rouiller
     percentage: 80
     type: PE
+subject:
+  - id: 1
+    name: Legros
+    firstname: Roger
+    comm_reg_nr: [null]
+    type: P
+  - id: 2
+    name: Legero
+    firstname: [null]
+    comm_reg_nr: [null]
+    type: C    
