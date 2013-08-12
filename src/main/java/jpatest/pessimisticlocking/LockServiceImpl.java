@@ -9,7 +9,8 @@ import javax.persistence.LockModeType;
 import javax.persistence.LockTimeoutException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
-import javax.validation.ConstraintViolation;
+
+import org.hibernate.exception.ConstraintViolationException;
 
 @Stateless
 public class LockServiceImpl implements LockService {
@@ -39,7 +40,9 @@ public class LockServiceImpl implements LockService {
                 em.persist(resource);
                 em.flush();
             } catch (PersistenceException pe) {
-                if ((pe.getCause() != null) && (pe.getCause() instanceof ConstraintViolation)) {
+
+                // Dependency to Hibernate-specific ConstraintViolationException
+                if ((pe.getCause() != null) && (pe.getCause() instanceof ConstraintViolationException)) {
 
                     // Another transaction has persisted the same resource, ignore it
                 } else {
