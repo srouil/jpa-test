@@ -1,5 +1,6 @@
 ordr:
   - id: 1001
     state: 0
+    previous_state: [null]
     delivery_status: [null]
     comment: first order

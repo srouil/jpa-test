@@ -63,11 +63,13 @@ public class GenericEnumUserTypeTest {
         // When
         Order order = em.find(Order.class, 1001L);
         order.setState(OrderState.PAID);
+        order.setPreviousState(OrderState.NEW);
         order.setDeliveryStatus(DeliveryStatus.SHIPPED);
 
         Order order2 = new Order();
         order2.setComment("second order");
         order2.setState(OrderState.ERROR);
+        order2.setPreviousState(OrderState.NEW);
         em.persist(order2);
 
         // Then

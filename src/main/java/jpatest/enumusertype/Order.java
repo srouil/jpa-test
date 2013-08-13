@@ -24,9 +24,9 @@ public class Order {
 
     @Id
     @GeneratedValue
-    Long id;
+    private Long id;
 
-    String comment;
+    private String comment;
 
     //@formatter:off
     @Type(
@@ -35,7 +35,11 @@ public class Order {
             @Parameter(name = "enumClass", value = "jpatest.enumusertype.OrderState"),
             @Parameter(name = "identifierMethod", value = "getCode") })
     //@formatter:on
-    OrderState state;
+    private OrderState state;
+
+    // Alternative solution to enum user type
+    @Column(name = "previous_state")
+    private Integer previousStateCode;
 
     //@formatter:off
     @Column(name = "delivery_status")
@@ -47,7 +51,7 @@ public class Order {
             @Parameter(name = "valueOfMethod", value = "valueOfCode"),
             })
     //@formatter:on
-    DeliveryStatus deliveryStatus;
+    private DeliveryStatus deliveryStatus;
 
     public String getComment() {
         return comment;
@@ -63,6 +67,23 @@ public class Order {
 
     public void setState(OrderState state) {
         this.state = state;
+    }
+
+    public OrderState getPreviousState() {
+        OrderState result = null;
+        if (previousStateCode != null) {
+            result = OrderState.valueOf(previousStateCode);
+        }
+
+        return result;
+    }
+
+    public void setPreviousState(OrderState previousState) {
+        if (previousState != null) {
+            previousStateCode = previousState.getCode();
+        } else {
+            previousStateCode = null;
+        }
     }
 
     public DeliveryStatus getDeliveryStatus() {

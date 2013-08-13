@@ -1,10 +1,12 @@
 ordr:
   - id: 1001
     state: 10
+    previous_state: 0
     delivery_status: abgesendet
     comment: first order
   - id: 1
     state: -1
+    previous_state: 0
     delivery_status: [null]
     comment: second order
     
