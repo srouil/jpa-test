@@ -36,8 +36,9 @@ standalone.xml is overwritten by Maven build every time JBoss AS is unpacked.
 	<level name="TRACE" />
 </logger>
 
-Add following configuration to standalone.xml to use an oracle datasource. 
+Add following configuration to standalone.xml to use an Oracle datasource. 
 This requires also Oracle module located under documentation/jboss modules. 
+Oracle datasource is usefull for testing PessimisticLockingTest with timeouts. 
 
 <datasource jndi-name="java:jboss/datasources/OracleDS" pool-name="OracleDS">
 	<connection-url>jdbc:oracle:thin:@ejpdxd9007.isc.ejpd.admin.ch:25000:gendb3e</connection-url>

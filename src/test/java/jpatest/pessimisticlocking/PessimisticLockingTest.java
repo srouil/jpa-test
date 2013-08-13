@@ -50,15 +50,13 @@ public class PessimisticLockingTest {
         // With Oracle, higher values can be used, timeout is higher.         
         // Oracle Dialect will generate SQL query "SELECT ... FOR UPATE WAIT 30" that allow to arbitrary set timeout.
 
-        // With both DBs, I do not managed to get LockTimeoutException that should not rollback the TX.
-        // javax.persistence.PersistenceException -> org.hibernate.exception.GenericJDBCException is always thrown.  
         Thread t1 = new Thread() {
 
             @Override
             public void run() {
 
                 for (int i = 0; i < 3; i++) {
-                    someService.doSomething(500);
+                    someService.doSomething(300);
                 }
             }
         };
@@ -68,7 +66,7 @@ public class PessimisticLockingTest {
             @Override
             public void run() {
                 for (int i = 0; i < 4; i++) {
-                    someService.doSomething(300);
+                    someService.doSomething(400);
                 }
             }
         };
