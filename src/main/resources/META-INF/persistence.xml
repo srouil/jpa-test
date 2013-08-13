@@ -10,7 +10,7 @@
       <!-- <jta-data-source>java:jboss/datasources/OracleDS</jta-data-source>  -->
       <properties>
          <!-- Properties for Hibernate, defined here at the moment since I cannot manage to add hibernate.properties with ShrinkWrap ... -->
-         <property name="hibernate.hbm2ddl.auto" value="update" />         
+         <property name="hibernate.hbm2ddl.auto" value="create-drop" />         
          <property name="jadira.usertype.databaseZone" value="jvm" />
          
       </properties>
