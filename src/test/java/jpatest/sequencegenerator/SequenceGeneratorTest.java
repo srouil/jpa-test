@@ -20,7 +20,6 @@ import sequencegenerator.Event;
 @RunWith(Arquillian.class)
 @Transactional(TransactionMode.COMMIT)
 @ApplyScriptBefore("scripts/sequencegenerator/cleanup.sql")
-//@Cleanup(phase = TestExecutionPhase.NONE)
 public class SequenceGeneratorTest {
 
     @Deployment

@@ -19,7 +19,9 @@
 		<jboss_javaee6_spec.version>2.0.0.Final</jboss_javaee6_spec.version>
 		<jbossas_7.version>7.1.1.Final</jbossas_7.version>
 		<hibernate_jpamodelgen.version>1.2.0.Final</hibernate_jpamodelgen.version>
-		<hibernate_core.version>4.2.1.Final</hibernate_core.version>
+		
+		<!-- Set same version as available in JBoss AS 7 for debugging -->
+		<hibernate_core.version>4.0.1.Final</hibernate_core.version>
 		<dozer.version>5.4.0</dozer.version>
 		<junit.version>4.8.1</junit.version>
 		<log4j.version>1.2.14</log4j.version>
