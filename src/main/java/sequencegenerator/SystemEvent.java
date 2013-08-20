@@ -8,8 +8,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TEST_EVENT")
-public class Event {
+@Table(name = "SYS_EVENT")
+public class SystemEvent {
 
     /*
      * Starting from Hibernate 4.0, behavior of @SequenceGenerator for ID generation has changed:
@@ -29,7 +29,7 @@ public class Event {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EVENT_ID_GENERATOR")
-    @SequenceGenerator(name = "EVENT_ID_GENERATOR", sequenceName = "EVENT_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "EVENT_ID_GENERATOR", sequenceName = "SYS_EVENT_SEQ", allocationSize = 1)
     private Long id;
 
     private String text;

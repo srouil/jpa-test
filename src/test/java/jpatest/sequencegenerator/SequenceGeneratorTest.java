@@ -15,7 +15,8 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import sequencegenerator.Event;
+import sequencegenerator.AlertEvent;
+import sequencegenerator.SystemEvent;
 
 @RunWith(Arquillian.class)
 @Transactional(TransactionMode.COMMIT)
@@ -24,7 +25,7 @@ public class SequenceGeneratorTest {
 
     @Deployment
     public static Archive<?> createTestArchive() {
-        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(Event.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
+        return ShrinkWrap.create(WebArchive.class, "test.war").addPackage(SystemEvent.class.getPackage()).addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
@@ -32,17 +33,16 @@ public class SequenceGeneratorTest {
     EntityManager em;
 
     /**
-     * Test showing 
+     * Test showing behavior of @SequenceGenerator with Hibernate 4
      */
     @Test
-    //    @ShouldMatchDataSet("cascade/expected1.yml")
-    public void testCreateEvent() {
+    public void testCreateSystemEvent() {
 
         // Given
 
         // When
         for (int i = 0; i < 24; i++) {
-            Event e = new Event();
+            SystemEvent e = new SystemEvent();
             e.setText("Hello world !!!");
             em.persist(e);
         }
@@ -51,4 +51,22 @@ public class SequenceGeneratorTest {
         //        Assert.assertEquals(1L, e.getId().longValue());
     }
 
+    /**
+     * Test showing Hibernate-specific @GenericGenerator with SequenceHiLoGenerator
+     */
+    @Test
+    public void testCreateAlertEvent() {
+
+        // Given
+
+        // When
+        for (int i = 0; i < 23; i++) {
+            AlertEvent e = new AlertEvent();
+            e.setText("Hello world !!!");
+            em.persist(e);
+        }
+
+        // Then
+        //        Assert.assertEquals(1L, e.getId().longValue());
+    }
 }
