@@ -41,14 +41,15 @@ public class SequenceGeneratorTest {
         // Given
 
         // When
-        for (int i = 0; i < 24; i++) {
+        for (int i = 0; i < 124; i++) {
             SystemEvent e = new SystemEvent();
             e.setText("Hello world !!!");
             em.persist(e);
         }
 
         // Then
-        //        Assert.assertEquals(1L, e.getId().longValue());
+        // Assert.assertEquals(1L, e.getId().longValue());
+        // Configure log4j so see generated SQL
     }
 
     /**
@@ -60,13 +61,15 @@ public class SequenceGeneratorTest {
         // Given
 
         // When
-        for (int i = 0; i < 23; i++) {
+        for (int i = 0; i < 124; i++) {
             AlertEvent e = new AlertEvent();
             e.setText("Hello world !!!");
             em.persist(e);
         }
 
         // Then
-        //        Assert.assertEquals(1L, e.getId().longValue());
+        // Assert.assertEquals(1L, e.getId().longValue());
+        // Configure log4j so see generated SQL
+
     }
 }

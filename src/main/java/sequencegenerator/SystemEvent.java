@@ -2,7 +2,6 @@ package sequencegenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -12,10 +11,7 @@ import javax.persistence.Table;
 public class SystemEvent {
 
     /*
-     * Starting from Hibernate 4.0, behavior of @SequenceGenerator for ID generation has changed:
-     * - with older versions, @SequenceGenerator was mapped to org.hibernate.id.SequenceHiLoGenerator. 
-     *   Sequence number was defined as (db_sequence * allocationSize) + increment.
-     * - starting from Hibernate 4.0, @SequenceGenerator is mapped to org.hibernate.id.enhanced.SequenceStyleGenerator with an 
+     * Starting from Hibernate 4.0, @SequenceGenerator is mapped to org.hibernate.id.enhanced.SequenceStyleGenerator with an 
      *   implementation of org.hibernate.id.Optimizer depending on allocationSize:
      *   - org.hibernate.id.enhanced.OptimizerFactory.NoopOptimizer when allocationSize = 1. 
      *   - org.hibernate.id.enhanced.OptimizerFactory.PooledOptimizer when allocationSize > 1
@@ -28,7 +24,7 @@ public class SystemEvent {
      * It is possible to set an arbitrary start value for the sequence (e.g. 1000)
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EVENT_ID_GENERATOR")
+    @GeneratedValue(generator = "EVENT_ID_GENERATOR")
     @SequenceGenerator(name = "EVENT_ID_GENERATOR", sequenceName = "SYS_EVENT_SEQ", allocationSize = 1)
     private Long id;
 
