@@ -3,7 +3,6 @@ package jpatest.blob;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
@@ -21,19 +20,19 @@ public class Document {
     public static final String SELECT_ALL_DOCUMENTS = "selectAllDocuments";
 
     @Id
-    @SequenceGenerator(name = "DOCUMENT_ID_GENERATOR", sequenceName = "DOCUMENT_SEQ")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DOCUMENT_ID_GENERATOR")
+    @GeneratedValue(generator = "DOCUMENT_ID_GENERATOR")
+    @SequenceGenerator(name = "DOCUMENT_ID_GENERATOR", sequenceName = "DOCUMENT_SEQ", allocationSize = 1)
     private Long id;
 
     private String fileName;
 
     private String description;
-    
+
     @Lob()
     private byte[] binaryData;
 
     // createTs, createUser, ... omitted
-    
+
     @Version
     @Column(name = "VERSION")
     private Integer version;
@@ -93,5 +92,5 @@ public class Document {
     public void setVersion(Integer version) {
         this.version = version;
     }
-    
+
 }

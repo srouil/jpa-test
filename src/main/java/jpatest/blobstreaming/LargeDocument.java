@@ -1,4 +1,4 @@
-package jpatest.blob;
+package jpatest.blobstreaming;
 
 import java.sql.Blob;
 
@@ -20,10 +20,12 @@ public class LargeDocument {
 
     @Id
     @GeneratedValue(generator = "DOCUMENT_ID_GENERATOR")
-    @SequenceGenerator(name = "DOCUMENT_ID_GENERATOR", sequenceName = "DOCUMENT_SEQ")
+    @SequenceGenerator(name = "DOCUMENT_ID_GENERATOR", sequenceName = "DOCUMENT_SEQ", allocationSize = 1)
     private Long id;
 
     private String fileName;
+
+    private String contentType;
 
     private String description;
 
@@ -45,9 +47,10 @@ public class LargeDocument {
     /**
      * Constructor used in "select new entity" named queries
      */
-    public LargeDocument(Long id, String fileName, String description, Integer version) {
+    public LargeDocument(Long id, String fileName, String mimeType, String description, Integer version) {
         this.id = id;
         this.fileName = fileName;
+        this.contentType = mimeType;
         this.description = description;
         this.version = version;
     }
@@ -66,6 +69,14 @@ public class LargeDocument {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public String getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(String mimeType) {
+        this.contentType = mimeType;
     }
 
     public String getDescription() {
