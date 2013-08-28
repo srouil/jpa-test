@@ -21,6 +21,12 @@ import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.ejb.HibernateEntityManager;
 
+/**
+ * Example of Servlet handling a file upload and "streaming" it directly into DB using a Blob object. 
+ * This example shows how to work with Blob and container-managed Entity Manager and UserTransaction in a servlet. 
+ * This implementation is probably not the best since it keeps a TX open during the file upload. A possible alternative would 
+ * be to decouple file upload from writing in DB by using a temp file.
+ */
 @SuppressWarnings("serial")
 @WebServlet(name = "DocumentUploadServlet", urlPatterns = "/document_upload")
 @MultipartConfig

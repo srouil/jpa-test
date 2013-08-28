@@ -40,7 +40,7 @@ public class BlobStreamingTest {
     }
 
     /**
-     * Test showing 
+     * Test uploading a document to DocumentUploadServlet
      */
     @Test
     public void testUploadDocument() throws Exception {
