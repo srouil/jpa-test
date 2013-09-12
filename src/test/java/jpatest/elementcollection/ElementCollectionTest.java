@@ -34,7 +34,10 @@ public class ElementCollectionTest {
 
     /**
      * Default fetch behavior is LAZY. This query uses "left join fetch" clause to eagerly load element collections
-     * like we would do it with OneToManyy
+     * like we would do it with OneToMany
+     * 
+     * Note that this query does not use "DISTINCT" because duplicate results returned by join is eliminated by getSingleResult(). 
+     * In case of query returning a collection, "DISTINCT" should be used. 
      */
     @Test
     @UsingDataSet("elementcollection/initial.yml")
