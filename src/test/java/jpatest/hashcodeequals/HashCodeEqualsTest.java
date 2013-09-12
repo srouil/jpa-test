@@ -146,8 +146,8 @@ public class HashCodeEqualsTest {
     }
 
     /**
-     * Test showing how modifying the result of hashCode() and equals() methods for an object contained in a Set
-     * violates the contracts of Set
+     * Test showing how modifying the result of hashCode() and equals() methods for an object contained in a HashSet or LinkedHashSet
+     * violates the contracts of Set. 
      */
     @Test
     public void testHashSet() {
@@ -156,9 +156,12 @@ public class HashCodeEqualsTest {
         Element e = new Element();
         set.add(e);
         assertTrue(set.contains(e));
-
         e.setId(3L);
-        assertFalse("Element has changed, violating set contract", set.contains(e));
+
+        Element e2 = new Element();
+        e2.setId(3L);
+
+        assertFalse("Element has changed, violating set contract", set.contains(e2));
     }
 
     /**
@@ -174,7 +177,11 @@ public class HashCodeEqualsTest {
         assertTrue(list.contains(e));
 
         e.setId(3L);
-        assertTrue(list.contains(e));
+
+        Element e2 = new Element();
+        e2.setId(3L);
+
+        assertTrue(list.contains(e2));
     }
 
 }
@@ -214,4 +221,5 @@ class Element {
 
         return false;
     }
+
 }
