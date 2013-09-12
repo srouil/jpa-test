@@ -109,7 +109,9 @@ public class NPlus1QueriesTest {
     }
 
     /**
-     * Test showing how XtoMany are eagerly fetched by query
+     * Test showing how XtoMany are eagerly fetched by query.
+     * 
+     * Note that JPQL query use "DISTINCT" to eliminate duplicates department (cartesian product caused by join)
      */
     @Test
     public void testFindFetchXtoMany() {

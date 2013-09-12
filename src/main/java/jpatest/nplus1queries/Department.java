@@ -19,7 +19,7 @@ import javax.persistence.OneToMany;
 @NamedQueries({
     @NamedQuery(
         name = Department.SELECT_ALL_DEPARTMENTS,             
-        query = "select DISTINCT d from Department d"),
+        query = "select d from Department d"),
     @NamedQuery(
         name = Department.SELECT_ALL_DEPARTMENTS_FETCH_ALL,             
         query = "select DISTINCT d from Department d " +
