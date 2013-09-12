@@ -1,0 +1,5 @@
+employee: 
+  - id: 1000
+    firstname: Lulu
+    lastname: Latortue
+    vacationdays: 0
