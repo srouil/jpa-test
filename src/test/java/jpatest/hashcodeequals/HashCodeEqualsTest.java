@@ -1,5 +1,13 @@
 package jpatest.hashcodeequals;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -110,11 +118,11 @@ public class HashCodeEqualsTest {
         // When
         Department department = em.find(Department.class, 1001L);
         Employee emp1 = em.find(Employee.class, 1001L);
-        
+
         // Then
         Assert.assertTrue(emp1.getDepartment().equals(department));
     }
-    
+
     @Test
     @UsingDataSet("hashcodeequals/initial.yml")
     public void testContainsAfterPersist() {
@@ -132,9 +140,78 @@ public class HashCodeEqualsTest {
         department.getEmployees().add(emp1);
 
         em.persist(emp1);
-        
+
         // Then
         Assert.assertTrue(department.getEmployees().contains(emp1));
     }
 
+    /**
+     * Test showing how modifying the result of hashCode() and equals() methods for an object contained in a Set
+     * violates the contracts of Set
+     */
+    @Test
+    public void testHashSet() {
+
+        Set<Element> set = new HashSet<Element>();
+        Element e = new Element();
+        set.add(e);
+        assertTrue(set.contains(e));
+
+        e.setId(3L);
+        assertFalse("Element has changed, violating set contract", set.contains(e));
+    }
+
+    /**
+     * Test showing that modifying the result of hashCode() and equals() methods is unproblematic for lists 
+     * (List implementations use object identity to access contained objects)
+     */
+    @Test
+    public void testList() {
+
+        List<Element> list = new LinkedList<Element>();
+        Element e = new Element();
+        list.add(e);
+        assertTrue(list.contains(e));
+
+        e.setId(3L);
+        assertTrue(list.contains(e));
+    }
+
+}
+
+/**
+ * Simple POJO whose ID attribute can be set, modifying the result of hashCode() and equals() methods 
+ */
+class Element {
+
+    public Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public int hashCode() {
+        if (id == null) {
+            return -1;
+        }
+
+        return id.intValue();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (o instanceof Element) {
+            Element e = (Element) o;
+
+            return e.getId() == id;
+        }
+
+        return false;
+    }
 }
