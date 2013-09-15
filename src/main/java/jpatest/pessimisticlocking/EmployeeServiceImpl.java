@@ -13,7 +13,7 @@ public class EmployeeServiceImpl {
 
     public void adjustEmployeeVacation(Long employeeId, int vacationDays) {
 
-        Employee e = em.find(Employee.class, employeeId, LockModeType.WRITE);
+        Employee e = em.find(Employee.class, employeeId, LockModeType.PESSIMISTIC_WRITE);
         e.setVacationDays(e.getVacationDays() + vacationDays);
     }
 }
