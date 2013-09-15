@@ -17,6 +17,7 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -45,14 +46,17 @@ public class PessimisticLockingTest {
     EmployeeServiceImpl employeeService;
 
     /**
-     * Test showing use of pessimistic locking to acquire exclusive lock on a named resource.
+     * Test showing use of pessimistic locking to acquire exclusive lock on a
+     * named resource.
      */
     @Test
     public void testLockResource() {
 
-        // Use low values of sleep time because timeout of JBoss H2 DB is very low (around 1000 ms).
-        // With Oracle, higher values can be used, timeout is higher.         
-        // Oracle Dialect will generate SQL query "SELECT ... FOR UPATE WAIT 30" that allow to arbitrary set timeout.
+        // Use low values of sleep time because timeout of JBoss H2 DB is very
+        // low (around 1000 ms).
+        // With Oracle, higher values can be used, timeout is higher.
+        // Oracle Dialect will generate SQL query "SELECT ... FOR UPATE WAIT 30"
+        // that allow to arbitrary set timeout.
 
         Thread t1 = new Thread() {
 
@@ -126,7 +130,9 @@ public class PessimisticLockingTest {
         }
 
         Employee e = em.find(Employee.class, 1000L);
-        // TODO make it work !!!
-        // Assert.assertEquals(new Integer(55), e.getVacationDays()); // 5*5 + 3*10
+
+        // assert usually fails if EmployeeService does not use a pessimistic
+        // lock on employee
+        Assert.assertEquals(new Integer(55), e.getVacationDays()); // 5*5 + 3*10
     }
 }
