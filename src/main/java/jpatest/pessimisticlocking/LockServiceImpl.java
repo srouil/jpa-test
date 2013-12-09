@@ -3,14 +3,12 @@ package jpatest.pessimisticlocking;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.LockTimeoutException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
-
-import org.hibernate.exception.ConstraintViolationException;
+import javax.validation.ConstraintViolationException;
 
 @Stateless
 public class LockServiceImpl implements LockService {
@@ -52,7 +50,7 @@ public class LockServiceImpl implements LockService {
         }
 
         try {
-            em.lock(resource, LockModeType.PESSIMISTIC_READ, properties);
+            em.lock(resource, LockModeType.PESSIMISTIC_WRITE, properties);
         } catch (LockTimeoutException lte) {
             throw new LockingTimeoutException("Cannot lock resource within timeout of " + TIMEOUT + " s.");
         }
