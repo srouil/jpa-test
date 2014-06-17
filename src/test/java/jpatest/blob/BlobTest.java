@@ -45,7 +45,7 @@ public class BlobTest {
     @EJB
     DocumentRepositoryBean documentRepository;
 
-    // Used only for assertions, otherwise we use repository
+    // Used only for assertions, otherwise we use repository    
     @PersistenceContext
     EntityManager em;
 
@@ -91,5 +91,5 @@ public class BlobTest {
         assertFalse("Document is in DETACHED state", em.contains(document));
     }
     
-    
+    // Some dummy comment to test Git ...
 }
