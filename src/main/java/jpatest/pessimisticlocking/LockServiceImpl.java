@@ -3,12 +3,14 @@ package jpatest.pessimisticlocking;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.LockTimeoutException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
-import javax.validation.ConstraintViolationException;
+
+import org.hibernate.exception.ConstraintViolationException;
 
 @Stateless
 public class LockServiceImpl implements LockService {
