@@ -11,4 +11,8 @@ public class DummyTest {
 	public void foo() {
 		String b = "lala";
 	}
+
+	public void foo2() {
+		String x = "lulu";
+	}
 }
