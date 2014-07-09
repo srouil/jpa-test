@@ -19,9 +19,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Subquery;
 
-import jpatest.query.Category;
-import jpatest.query.Person;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.persistence.Cleanup;
@@ -203,11 +200,12 @@ public class QueryTest {
     }
 
     /**
-     * This shows usage of Criteria API with parameters
+     * This shows usage of Criteria API with String parameters
+     * With parameters of type String, Hibernate uses bind parameters in the generated SQL query
      */
     @Test
     @UsingDataSet("query/initial.yml")
-    public void testCriteriaParameters() {
+    public void testCriteriaStringParameters() {
 
         // Given
         // Initial dataset
@@ -218,19 +216,41 @@ public class QueryTest {
         Root<Person> person = c.from(Person.class);
         c.select(person);
 
-        ParameterExpression<String> param = cb.parameter(String.class);
-        Predicate predicate = cb.like(person.get(Person_.lastName), param);
+        Predicate predicate = cb.like(person.get(Person_.lastName), "Leg%");
         c.where(predicate);
 
-        // Query using parameter can be replaced with these 2 line that use a literal
-        // Generated SQL query is the same in both case: Hibernate uses a bind parameter
-        // Predicate predicate = cb.like(person.get(Person_.lastName), "Leg%");
-        // c.where(predicate);
+        TypedQuery<Person> q = em.createQuery(c);
+        List<Person> persons = q.getResultList();
+
+        // Then
+        assertEquals(1, persons.size());
+    }
+
+    /**
+     * This shows usage of Criteria API with numerical parameters
+     * With numerical parameters, Hibernate does not automatically use bind parameters in the generated SQL query
+     * (see https://hibernate.atlassian.net/i#browse/HHH-6280)
+     * Therefore numerical parameters should be integrated as parameter expressions
+     */
+    @Test
+    @UsingDataSet("query/initial.yml")
+    public void testCriteriaNumericalParameters() {
+
+        // Given
+        // Initial dataset
+
+        // When
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Person> c = cb.createQuery(Person.class);
+        Root<Person> person = c.from(Person.class);
+        c.select(person);
+
+        ParameterExpression<BigDecimal> param = cb.parameter(BigDecimal.class);
+        Predicate predicate = cb.equal(person.get(Person_.salary), param);
+        c.where(predicate);
 
         TypedQuery<Person> q = em.createQuery(c);
-        
-        q.setParameter(param, "Legr%");
-        
+        q.setParameter(param, new BigDecimal("80000"));
         List<Person> persons = q.getResultList();
 
         // Then
