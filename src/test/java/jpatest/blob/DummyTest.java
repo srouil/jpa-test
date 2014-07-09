@@ -8,5 +8,6 @@ public class DummyTest {
 	}
 
 	public void foo() {
+		String b = "lala";
 	}
 }
