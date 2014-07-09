@@ -4,6 +4,7 @@ package jpatest.blob;
 public class DummyTest {
 
 	public static void main(String[] args) {
+		int a = 0;
 	}
 
 	public void foo() {
