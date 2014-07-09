@@ -8,6 +8,7 @@ public class DummyTest {
 		int c = 10;
 		int b = 3;
 		int d = 5;
+		int e = 6;
 	}
 
 	public void foo() {
