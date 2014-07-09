@@ -29,4 +29,8 @@ public class DummyTest {
 	public void foo3() {
 		String x = "hoi";
 	}
+	
+	public void hallo() {
+		String x = "hallo";
+	}
 }
