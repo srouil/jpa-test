@@ -6,6 +6,7 @@ public class DummyTest {
 	public static void main(String[] args) {
 		int a = 0;
 		int c = 10;
+		int b = 3;
 	}
 
 	public void foo() {
