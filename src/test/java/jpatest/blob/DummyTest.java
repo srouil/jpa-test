@@ -32,5 +32,6 @@ public class DummyTest {
 	
 	public void hallo() {
 		String x = "hallo";
+		String y = "youhou";
 	}
 }
