@@ -30,7 +30,7 @@ public class DummyTest {
 		String x = "hoi";
 	}
 	
-	public void hallo() {
+	public void halloooo() {
 		String x = "hallo";
 		String y = "youhou";
 	}
