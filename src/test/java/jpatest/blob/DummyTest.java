@@ -42,6 +42,10 @@ public class DummyTest {
 		String x = "hoihoi";
 	}
 	
+	public void foo6() {
+		String x = "hum";
+	}
+	
 	public void halloooo() {
 		String x = "hallo";
 		String y = "youhou";
