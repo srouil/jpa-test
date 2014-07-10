@@ -43,6 +43,10 @@ public class DummyTest {
 		String x = "hoihoi";
 	}
 	
+	public void foo6() {
+		String x = "building up in main development path ...";
+	}
+
 	
 	public void halloooo() {
 		String x = "hallo";
