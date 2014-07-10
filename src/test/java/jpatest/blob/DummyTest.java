@@ -57,5 +57,8 @@ public class DummyTest {
 		
 		// Some more corrections
 		int b = 1;
+		
+		// Hopefully the last fix for 1.1.0
+		int z = 9;
 	}
 }
