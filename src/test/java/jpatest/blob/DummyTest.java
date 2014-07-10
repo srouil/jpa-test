@@ -19,6 +19,7 @@ public class DummyTest {
 		int m = 5;
 		int n = 6;
 		int o = 7;
+		int p = 10;
 	}
 
 	public void foo() {
