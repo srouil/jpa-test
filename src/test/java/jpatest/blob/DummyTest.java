@@ -30,6 +30,10 @@ public class DummyTest {
 		String x = "hoi";
 	}
 	
+	public void foo4() {
+		String x = "hoi";
+	}
+	
 	public void halloooo() {
 		String x = "hallo";
 		String y = "youhou";
