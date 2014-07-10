@@ -13,6 +13,7 @@ public class DummyTest {
 		int g = 8;
 		int h = 9;
 		int i = 0;
+		int j = 0;
 	}
 
 	public void foo() {
