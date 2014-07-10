@@ -17,6 +17,7 @@ public class DummyTest {
 		int k = 0;
 		int l = 10;
 		int m = 5;
+		int n = 6;
 	}
 
 	public void foo() {
