@@ -51,5 +51,8 @@ public class DummyTest {
 	public void halloooo() {
 		String x = "hallo";
 		String y = "youhou";
+		
+		// Some correction for release 1.1.0
+		int a = 0;
 	}
 }
