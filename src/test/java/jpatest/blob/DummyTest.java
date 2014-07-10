@@ -20,6 +20,7 @@ public class DummyTest {
 		int n = 6;
 		int o = 7;
 		int p = 10;
+		int q = 5;
 	}
 
 	public void foo() {
