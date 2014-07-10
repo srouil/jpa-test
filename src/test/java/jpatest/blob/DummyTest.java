@@ -54,5 +54,8 @@ public class DummyTest {
 		
 		// Some correction for release 1.1.0
 		int a = 0;
+		
+		// Some more corrections
+		int b = 1;
 	}
 }
